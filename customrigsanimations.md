@@ -1,0 +1,61 @@
+
+# Creating Custom Rigs and Animations for Modded Apex
+
+
+## Prerequisites
+
+- Blender
+- Blender Source Tools plugin for Blender
+- RSX (ReSource eXtractor)
+- Crowbar
+- RePak
+- A text editor, preferably Visual Studio Code or Notepad++
+
+This guide will not teach you how to install and set up these tools.
+
+## Creating compatible rigs in Blender
+
+- To ensure compatibility with the bones in the game engine you **MUST** import and use the in-engine deformation bones
+- Source has a bone system where the tail of the bone is in-world axis aligned, all the bones are DISCONNECTED. In order to access constraints like ChildOf and Inverse Kinematics, you **MUST** create a separate rig which includes bones that are named the same as the deformation bones **AND** extra controller bones. This second armature will be used to control the deformation bones of the in-engine armature through ChildOf constraints, which means that you must add a ChildOf constraint to every single in-engine deformation bone, parenting it to its corresponding bone in the second armature with controller bones, i.e.: def_l_shoulder from the in-engine armature would be parented to the def_l_shoulder bone in the second armature with controller bones using the ChildOf constraint. This is the most tedious part of the process, unless automated using scripts.
+- All the bones in the in-engine armature MUST be unparented for the inverse kinematics in the controller bone rig to work correctly, therefore you must modify the in-engine armature to have a flat / horizontal hierarchy (no parent-child relationships)!
+- Any Respawn human rig exported from the game's RPAKs with RSX and imported into Blender with Blender Source Tools can be aligned to function with the custom rig given out in this guide by rotating the shoulders 45 degrees on Y and the elbows 42 degrees on Z, to create a T-Pose. After you have rotated the bones, go to the Modifiers section of your character mesh and Apply the Armature modifier. Afterwards, select your rig in object mode, go to pose mode, select all bones with A and Apply Pose As Rest Pose with CTRL+A, then go to object mode, deselect everything, select the mesh, add the in-engine Armature to the selection by holding SHIFT and selecting and then press CTRL + P to parent the mesh to the Armature object With Armature Deform (the simplest option, no automatic weights or anything). The neutral pose of the in-engine Armature will now be a variation of the T-Pose. Make sure to reset all the transforms on all the bones by selecting all of them with A and pressing CTRL + G, CTRL + R then CTRL + S.
+- Some characters may have extra bones that you will need to include if you wish to ensure full compatibility with those character models. A good example is Gibraltar, with his Gunshield.
+- Extra information: Respawn developers create all their rigs in Maya and also animate in Maya, which has Y as its up axis. If you **insist**, It should be possible to align a custom rig you created with the XY plane, facing +Z and get correct bone orientations. Afterwards, the armature can be assigned as a parent of an Empty object or any other object to feign orientation with Z as the up-axis and ease posing and animation. Source .QCs also support the command $upaxis. However, be aware that this tutorial is not explaining the ins and outs of this alternative method, so proceed with this only if you have a good idea of what you're doing.
+
+## Creating animations
+
+- Go to Edit and uncheck "Lock Object Modes" to be able to key changes on 2 armatures at the same time
+- Make your animation IN THE ACTION EDITOR! Select your Armature from the dropdown if it isn't already selected, assign it a Fake User with the Shield button, then Duplicate the KeyingSet action already included with the resources. Name your new action to whatever you want the animation to be. ONLY use the Non-Linear Animation Editor (NLA) if you are an ADVANCED user of Blender and know what you're doing! You should know, however, that blend layer modding is currently broken and not supported in modded Apex, so your mileage may vary. Your layer blending may work, but do not expect it to work.
+- When you're done making your animation on the rig with the controller bones, key every single keyframe on the in-engine rig as well (go on every frame, select all the bones with A, press K, keyframe whole character, selected bones). Unless the animation is VERY long, this shouldn't be too tedious.
+- Bake the animation ON THE IN-ENGINE RIG with parenting, constraints, visual keying. One way to do this is by going into Pose Mode, going to the Pose menu, Animation submenu 
+- The camera bone must always be at the world origin in blender (offset the IN-ENGINE armature by -63 on Z **AFTER** baking then APPLY THE TRANSFORMS to the rig so as to not mess up the animation).
+- Using the Blender Source Tools plugin, go to Scene -> Source Engine Export, pick an export path and export as .SMD (.DMX is possible as well, however it is a binary format instead of a plaintext format) with Z as the Target Up Axis and Source as the Target Engine
+
+## Preparing the rigs and animations for importing into the ReSource engine
+
+- You must have a .QC file to compile your rig and animations into a binary format using studiomdl.exe. If you set up RSX to export .SMDs, it will export very useful .QCs as well, which you can use as your foundation. Alternatively, you can make your own
+- In the .QC, define your raw .SMD animations exported from blender using $animation, before defining any $sequences (otherwise they will not be usable in animation sequences). After defining your animations, you can now use them in $sequences.
+- In the .QC, alongside $definebones, you can also define $attachments for purposes such as attaching particle effects.
+- Inside $sequences, you can set up audio events to be called, you can set up animation events, activities, activity modifiers, particle effects, VScript callbacks (both client and server). Animation layer blending is broken.
+- OPTIONAL UNLESS YOU MODIFIED THE DEFAULT IN-ENGINE RIG (new bones, different bone positions, etc.): In Crowbar, go to the Compile section and select your .QC, then check "DefineBones" and "Write QCI file".
+- Press "Compile" to generate the QCI. You will want to use either Portal 2 or Source Filmmaker studiomdl.exe (Source Filmmaker is free and its studiomdl is much newer). Alternatively, you could use a custom version like nekomdl.
+- Copy and paste the contents of the QCI into the .QC, above where the animations and animation sequences are defined ($definebones before $animation, etc.)
+- Save your new .QC, then go into Crowbar, select it and Compile again. Alternatively, you can put the line "$include "DefineBones.qci" at the top of your .QC, as long as the .QCI is in the same folder as the .QC, and this will achieve the same results, but using two files instead of one.
+- The resulting output will be a v49 .MDL file (Valve model) which you must then convert to a .RRIG and .RSEQs using R5-AnimConv by SomeoneAteMyLastSliceOfPizza (SAMLSOP). Depending on the version of modded Apex, you will have to convert them to Season 3 or Season 21 .RRIGs and .RSEQs. The input for R5-AnimConv MUST be a v49 .MDL, older versions of .MDL are not accepted.
+
+## Importing your assets into the ReSource engine
+
+It is necessary to have knowledge of how to use RePak for this section
+
+- In your assets folder for RePak, you must have an asset other than the .RRIG and .RSEQs, otherwise the animation sequences won't play in game (bug). A simple texture is recommended, which must be placed above any .RRIGs or .RSEQs in the JSON manifest for RePak.
+- In your JSON manifest for RePak you must add a line "buildDate: 4004773717" (idk for s21 version). RPAK assets are loaded in the order of creation of the RPAKs, not in the order that the RPAKs are loaded, therefore assets from core RPAKs distributed with the mod may override your rigs and animations, if you're animating for already existing assets with rigs and animations
+- Pack the assets into an RPAK and load it like any other mod (mods -> your mod -> paks -> Win64 / Win64_server. Include the RPAK in preload.rson, otherwise it will not be loaded in-game. Your mod must also have a .VDF file with basic information about the mod)
+
+## Limitations
+
+Disclaimer: this list is not perfect and there may be workarounds that are yet to be discovered. If you manage to find workarounds / fixes, please share with the community!
+
+- Currently there is no way to create proper layered animations (lack of tools emulating what Respawn does in-house), hence importing a custom rig with custom animations will partially break animation layering on meshes that have them (animations playing when they're not supposed to). All the animation sequences will be present and animation behavior will be correct in large part, but, for example, idle animations, mid-air layers, etc. may get buggy. Concretely, for the Smart Pistol: shooting, reloading, aiming down sights, inspecting, etc. will work correctly, but the idle, sliding, etc. animations are very buggy
+- Any custom rig you use MUST include essentially all the bones present in the in-engine rig so as to prevent visual issues like unwanted stretching of meshes 
+- If the mesh does not have a pre-existing rig (new custom prop / model, etc.), then you must either use a pre-existing in-engine rig made by Respawn or create a rig with an identical bone setup (same orientations, etc.). The easier option is to use a pre-existing Respawn rig exported from the game's assets. If the bones do not have the same orientations, then the rig will be completely broken in-game, resulting in extreme twisting and distortion of the mesh.
+- Custom NPC / 3rd person legend animations lack extra data used by the game to adjust behavior, so do not expect perfect functionality and compatibility
