@@ -3,7 +3,8 @@
     {
       "title": "Creating Custom Rigs and Animations for Modded Apex",
       "path": "docs/animations/custom-rigs-animations.md",
-      "group": "Animations"
+      "group": "Animations",
+      "assets": []
     }
   ]
 }

@@ -20,6 +20,7 @@ const elements = {
   docGroup: document.querySelector("#docGroup"),
   docPath: document.querySelector("#docPath"),
   markdownBody: document.querySelector("#markdownBody"),
+  assetPanel: document.querySelector("#assetPanel"),
   toc: document.querySelector("#toc"),
   readingProgress: document.querySelector("#readingProgress"),
 };
@@ -41,14 +42,27 @@ const slugify = (value) =>
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 
+const isSafeLink = (href) => !/^\s*javascript:/i.test(href);
+
+function linkAttributes(href) {
+  const safeHref = isSafeLink(href) ? escapeHtml(href) : "#";
+  const isDocLink = href.replace(/^\.\//, "").startsWith("docs/") && href.split("#")[0].endsWith(".md");
+  if (href.startsWith("#") || isDocLink) {
+    return `href="${safeHref}"`;
+  }
+  return `href="${safeHref}" target="_blank" rel="noreferrer"`;
+}
+
 function inlineMarkdown(value) {
   let output = escapeHtml(value);
   output = output.replace(/`([^`]+)`/g, "<code>$1</code>");
   output = output.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   output = output.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   output = output.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, href) => {
-    const safeHref = escapeHtml(href);
-    return `<a href="${safeHref}" target="_blank" rel="noreferrer">${label}</a>`;
+    return `<a ${linkAttributes(href)}>${label}</a>`;
+  });
+  output = output.replace(/(^|[\s(])((?:https?:\/\/|mailto:)[^\s<)]+)/g, (_match, prefix, href) => {
+    return `${prefix}<a ${linkAttributes(href)}>${href}</a>`;
   });
   return output;
 }
@@ -212,7 +226,79 @@ function buildToc() {
   }
   elements.toc.innerHTML = `
     <p class="toc-title">On this page</p>
-    ${headings.map((heading) => `<a href="#${heading.id}">${heading.textContent}</a>`).join("")}
+    ${headings
+      .map(
+        (heading) => `
+          <a href="#${heading.id}" data-toc-id="${heading.id}">
+            ${escapeHtml(heading.textContent)}
+          </a>
+        `,
+      )
+      .join("")}
+  `;
+  updateActiveToc();
+}
+
+function setActiveToc(id) {
+  const links = [...elements.toc.querySelectorAll("[data-toc-id]")];
+  links.forEach((link) => {
+    const isActive = link.dataset.tocId === id;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function updateActiveToc() {
+  const headings = [...elements.markdownBody.querySelectorAll("h2, h3")];
+  if (!headings.length || elements.docView.hidden) return;
+
+  const offset = 130;
+  let active = headings[0];
+  for (const heading of headings) {
+    if (heading.getBoundingClientRect().top <= offset) {
+      active = heading;
+    } else {
+      break;
+    }
+  }
+  setActiveToc(active.id);
+}
+
+function assetKind(assetName) {
+  const extension = assetName.split(".").pop();
+  if (!extension || extension === assetName) return "File";
+  return extension.toUpperCase();
+}
+
+function renderAssets(doc) {
+  const assets = doc.assets || [];
+  const suggestedFolder = doc.path.replace(/\/[^/]+$/, "/assets/");
+
+  elements.assetPanel.innerHTML = `
+    <div class="asset-panel-head">
+      <p class="asset-title">Assets</p>
+      <span>${assets.length}</span>
+    </div>
+    ${
+      assets.length
+        ? `<div class="asset-list">
+            ${assets
+              .map(
+                (asset) => `
+                  <a class="asset-link" href="${encodeURI(asset.path)}" target="_blank" rel="noreferrer">
+                    <strong>${escapeHtml(asset.name)}</strong>
+                    <small>${escapeHtml(assetKind(asset.name))} / ${escapeHtml(asset.size)}</small>
+                  </a>
+                `,
+              )
+              .join("")}
+          </div>`
+        : `<p class="asset-empty">No related files yet. Add files to <code>${escapeHtml(suggestedFolder)}</code>.</p>`
+    }
   `;
 }
 
@@ -232,6 +318,7 @@ async function openDoc(path) {
   elements.docGroup.textContent = doc.group;
   elements.docPath.textContent = doc.path;
   elements.markdownBody.innerHTML = parseMarkdown(markdown);
+  renderAssets(doc);
   buildToc();
   renderNav();
   elements.sidebar.classList.remove("open");
@@ -285,8 +372,50 @@ elements.navToggle.addEventListener("click", () => {
   elements.navToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
+elements.toc.addEventListener("click", (event) => {
+  const link = event.target.closest("[data-toc-id]");
+  if (!link) return;
+
+  event.preventDefault();
+  const heading = document.getElementById(link.dataset.tocId);
+  if (!heading) return;
+
+  heading.scrollIntoView({ behavior: "smooth", block: "start" });
+  setActiveToc(link.dataset.tocId);
+});
+
+elements.markdownBody.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link) return;
+
+  const href = link.getAttribute("href");
+  if (!href) return;
+
+  if (href.startsWith("#")) {
+    event.preventDefault();
+    const heading = document.getElementById(href.slice(1));
+    if (!heading) return;
+    heading.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActiveToc(heading.id);
+    return;
+  }
+
+  const docPath = href.replace(/^\.\//, "").split("#")[0];
+  if (state.docs.some((doc) => doc.path === docPath)) {
+    event.preventDefault();
+    window.location.hash = `#/${docPath}`;
+  }
+});
+
 window.addEventListener("hashchange", route);
-window.addEventListener("scroll", updateProgress, { passive: true });
+window.addEventListener(
+  "scroll",
+  () => {
+    updateProgress();
+    updateActiveToc();
+  },
+  { passive: true },
+);
 
 init().catch((error) => {
   elements.libraryView.innerHTML = `<p class="empty-state">The documentation manifest could not be loaded. Run the manifest generator and try again.</p>`;
