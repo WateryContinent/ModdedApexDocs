@@ -35,7 +35,7 @@ This guide will not teach you how to install and set up these tools.
 
 ## Preparing the rigs and animations for importing into the ReSource engine
 
-- You must have a .QC file to compile your rig and animations into a binary format using studiomdl.exe. If you set up RSX to export .SMDs, it will export very useful .QCs as well, which you can use as your foundation. Alternatively, you can make your own
+- You must have a .QC file to compile your rig and animations into a binary format (.MDL V49) using studiomdl.exe (Valve's model compilation tool. Rigs are technically models without polygons and Valve models can be animation-only). If you set up RSX to export .SMDs, it will export very useful .QCs as well, which you can use as your foundation. Alternatively, you can make your own
 - In the .QC, define your raw .SMD animations exported from blender using $animation, before defining any $sequences (otherwise they will not be usable in animation sequences). After defining your animations, you can now use them in $sequences.
 - In the .QC, alongside $definebones, you can also define $attachments for purposes such as attaching particle effects.
 - Inside $sequences, you can set up audio **EVENTS** (an audio clip is NOT the same as an audio EVENT) to be called, you can set up animation events, activities, activity modifiers, particle effects, VScript callbacks (both client and server). Animation layer blending is broken.
