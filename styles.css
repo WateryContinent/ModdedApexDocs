@@ -63,6 +63,10 @@ input {
   font: inherit;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .progress {
   position: fixed;
   top: 0;
@@ -210,6 +214,7 @@ input {
 .toc-title,
 .asset-title,
 .eyebrow,
+.doc-meta,
 .breadcrumb {
   font-family: "IBM Plex Mono", monospace;
   letter-spacing: 0.05em;
@@ -420,6 +425,22 @@ input {
   font-family: Alegreya, Georgia, serif;
   font-size: 3.25rem;
   line-height: 1.05;
+}
+
+.doc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.doc-meta span {
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(50, 15, 17, 0.72);
 }
 
 .doc-layout {

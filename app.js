@@ -18,6 +18,8 @@ const elements = {
   docTitle: document.querySelector("#docTitle"),
   topbarContext: document.querySelector("#topbarContext"),
   breadcrumb: document.querySelector("#breadcrumb"),
+  docGroup: document.querySelector("#docGroup"),
+  docPath: document.querySelector("#docPath"),
   markdownBody: document.querySelector("#markdownBody"),
   assetPanel: document.querySelector("#assetPanel"),
   toc: document.querySelector("#toc"),
@@ -359,6 +361,8 @@ async function openDoc(path) {
   elements.docTitle.textContent = doc.title;
   elements.topbarContext.textContent = doc.title;
   elements.breadcrumb.textContent = "Docs / " + doc.group;
+  elements.docGroup.textContent = doc.group;
+  elements.docPath.textContent = doc.path;
   elements.markdownBody.innerHTML = parseMarkdown(markdown, doc.path);
   renderAssets(doc);
   buildToc();
@@ -372,10 +376,9 @@ function showHome() {
   state.activePath = "";
   elements.topbarContext.textContent = "Documentation home";
   elements.homeView.hidden = false;
-  elements.libraryView.hidden = false;
+  elements.libraryView.hidden = true;
   elements.docView.hidden = true;
   renderNav();
-  renderLibrary();
 }
 
 function route() {
@@ -400,14 +403,12 @@ async function init() {
   state.docs = manifest.docs || [];
   elements.docCount.textContent = state.docs.length;
   renderNav();
-  renderLibrary();
   route();
 }
 
 elements.docSearch.addEventListener("input", (event) => {
   state.query = event.target.value;
   renderNav();
-  renderLibrary();
 });
 
 elements.navToggle.addEventListener("click", () => {
@@ -461,6 +462,9 @@ window.addEventListener(
 );
 
 init().catch((error) => {
-  elements.libraryView.innerHTML = `<p class="empty-state">The documentation manifest could not be loaded. Run the manifest generator and try again.</p>`;
+  elements.homeView.insertAdjacentHTML(
+    "afterend",
+    `<p class="empty-state">The documentation manifest could not be loaded. Run the manifest generator and try again.</p>`,
+  );
   console.error(error);
 });

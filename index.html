@@ -58,13 +58,17 @@
           </div>
         </section>
 
-        <section class="library" id="libraryView" aria-label="Document library"></section>
+        <section class="library" id="libraryView" aria-label="Document library" hidden></section>
 
         <article class="doc" id="docView" hidden>
           <header class="doc-header">
             <div class="doc-title-block">
               <p class="breadcrumb" id="breadcrumb"></p>
               <h1 id="docTitle"></h1>
+              <div class="doc-meta">
+                <span id="docGroup"></span>
+                <span id="docPath"></span>
+              </div>
             </div>
             <aside class="asset-panel" id="assetPanel" aria-label="Related assets"></aside>
           </header>

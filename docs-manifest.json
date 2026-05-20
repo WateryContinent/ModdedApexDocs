@@ -23,7 +23,14 @@
       "title": "FATOM EVE",
       "path": "docs/eve/eve.md",
       "group": "Eve",
-      "assets": []
+      "assets": [
+        {
+          "name": "fatomeve.png",
+          "path": "docs/eve/images/fatomeve.png",
+          "size": "295.1 KB",
+          "folder": "eve/images"
+        }
+      ]
     }
   ]
 }
