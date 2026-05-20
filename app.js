@@ -18,8 +18,6 @@ const elements = {
   docTitle: document.querySelector("#docTitle"),
   topbarContext: document.querySelector("#topbarContext"),
   breadcrumb: document.querySelector("#breadcrumb"),
-  docGroup: document.querySelector("#docGroup"),
-  docPath: document.querySelector("#docPath"),
   markdownBody: document.querySelector("#markdownBody"),
   assetPanel: document.querySelector("#assetPanel"),
   toc: document.querySelector("#toc"),
@@ -361,8 +359,6 @@ async function openDoc(path) {
   elements.docTitle.textContent = doc.title;
   elements.topbarContext.textContent = doc.title;
   elements.breadcrumb.textContent = "Docs / " + doc.group;
-  elements.docGroup.textContent = doc.group;
-  elements.docPath.textContent = doc.path;
   elements.markdownBody.innerHTML = parseMarkdown(markdown, doc.path);
   renderAssets(doc);
   buildToc();
