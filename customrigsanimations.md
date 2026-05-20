@@ -4,11 +4,11 @@
 
 ## Prerequisites
 
-- Blender
-- Blender Source Tools plugin for Blender
-- RSX (ReSource eXtractor)
-- Crowbar
-- RePak
+- Blender - https://www.blender.org/ or the Steam Store
+- Blender Source Tools plugin for Blender - https://developer.valvesoftware.com/wiki/Blender_Source_Tools
+- RSX (ReSource eXtractor) - github.com/r-ex/rsx
+- Crowbar - https://steamcommunity.com/groups/CrowbarTool
+- RePak - https://github.com/r-ex/RePak
 - A text editor, preferably Visual Studio Code or Notepad++
 
 This guide will not teach you how to install and set up these tools.
