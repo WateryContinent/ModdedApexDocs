@@ -44,6 +44,7 @@ This guide will not teach you how to install and set up these tools.
 - Copy and paste the contents of the QCI into the .QC, above where the animations and animation sequences are defined ($definebones before $animation, etc.)
 - Save your new .QC, then go into Crowbar, select it and Compile again. Alternatively, you can put the line "$include "DefineBones.qci" at the top of your .QC, as long as the .QCI is in the same folder as the .QC, and this will achieve the same results, but using two files instead of one.
 - The resulting output will be a v49 .MDL file (Valve model) which you must then convert to a .RRIG and .RSEQs using R5-AnimConv by SomeoneAteMyLastSliceOfPizza (SAMLSOP). Depending on the version of modded Apex, you will have to convert them to Season 3 or Season 21 .RRIGs and .RSEQs. The input for R5-AnimConv MUST be a v49 .MDL, older versions of .MDL are not accepted.
+- It is necessary to include the RRIG even if you only want to add custom RSEQs, because all animation sequences need to be associated with a rig. For most purposes it is enough to include the RRIG made by Respawn which you have already exported using RSX.
 
 ## Importing your assets into the ReSource engine
 
