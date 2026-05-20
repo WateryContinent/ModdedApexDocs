@@ -4,7 +4,20 @@
       "title": "Creating Custom Rigs and Animations for Modded Apex",
       "path": "docs/animations/custom-rigs-animations.md",
       "group": "Animations",
-      "assets": []
+      "assets": [
+        {
+          "name": "ApexCustomHumanIKRig.blend",
+          "path": "docs/animations/assets/ApexCustomHumanIKRig.blend",
+          "size": "254.7 KB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ExampleRPAKForRePak.zip",
+          "path": "docs/animations/assets/ExampleRPAKForRePak.zip",
+          "size": "18.5 KB",
+          "folder": "animations/assets"
+        }
+      ]
     }
   ]
 }
