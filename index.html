@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Clean documentation for Modded Apex workflows, rigs, animation tools, and asset pipelines."
+    />
+    <title>Modded Apex Docs</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="progress" id="readingProgress"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#/" aria-label="Modded Apex Docs home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Modded Apex Docs</strong>
+          <small>rigs, animation, assets</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="sidebar">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="search-wrap">
+          <label for="docSearch">Search docs</label>
+          <input id="docSearch" type="search" placeholder="Find a guide, tool, or step" autocomplete="off" />
+        </div>
+        <nav class="doc-nav" id="docNav" aria-label="Documentation"></nav>
+      </aside>
+
+      <main class="content" id="mainContent">
+        <section class="hero" id="homeView">
+          <div class="hero-copy">
+            <p class="eyebrow">Community documentation</p>
+            <h1>Readable notes for the parts of modding that are easy to lose.</h1>
+            <p>
+              Browse markdown guides with fast search, section links, and a calm reading layout built for long technical workflows.
+            </p>
+          </div>
+          <div class="hero-panel" aria-label="Documentation stats">
+            <span id="docCount">0</span>
+            <small>guides indexed</small>
+          </div>
+        </section>
+
+        <section class="library" id="libraryView" aria-label="Document library"></section>
+
+        <article class="doc" id="docView" hidden>
+          <header class="doc-header">
+            <p class="breadcrumb" id="breadcrumb"></p>
+            <h1 id="docTitle"></h1>
+            <div class="doc-meta">
+              <span id="docGroup"></span>
+              <span id="docPath"></span>
+            </div>
+          </header>
+          <div class="doc-layout">
+            <div class="markdown-body" id="markdownBody"></div>
+            <aside class="toc" id="toc" aria-label="On this page"></aside>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
