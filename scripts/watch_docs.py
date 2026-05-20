@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the docs manifest whenever markdown files change."""
+"""Regenerate the docs manifest whenever docs or resource files change."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ def snapshot() -> tuple[tuple[str, int, int], ...]:
         return ()
 
     entries = []
-    for path in sorted(DOCS_DIR.rglob("*.md")):
+    for path in sorted(item for item in DOCS_DIR.rglob("*") if item.is_file() and not item.name.startswith(".")):
         stat = path.stat()
         entries.append((path.relative_to(ROOT).as_posix(), stat.st_mtime_ns, stat.st_size))
     return tuple(entries)
@@ -32,7 +32,7 @@ def regenerate() -> None:
 
 
 def main() -> None:
-    print("Watching docs/**/*.md for changes. Press Ctrl+C to stop.", flush=True)
+    print("Watching docs/ for page, asset, and image changes. Press Ctrl+C to stop.", flush=True)
     regenerate()
     previous = snapshot()
 

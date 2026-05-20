@@ -16,6 +16,7 @@ const elements = {
   docView: document.querySelector("#docView"),
   docCount: document.querySelector("#docCount"),
   docTitle: document.querySelector("#docTitle"),
+  topbarContext: document.querySelector("#topbarContext"),
   breadcrumb: document.querySelector("#breadcrumb"),
   docGroup: document.querySelector("#docGroup"),
   docPath: document.querySelector("#docPath"),
@@ -44,30 +45,74 @@ const slugify = (value) =>
 
 const isSafeLink = (href) => !/^\s*javascript:/i.test(href);
 
-function linkAttributes(href) {
-  const safeHref = isSafeLink(href) ? escapeHtml(href) : "#";
-  const isDocLink = href.replace(/^\.\//, "").startsWith("docs/") && href.split("#")[0].endsWith(".md");
-  if (href.startsWith("#") || isDocLink) {
+function normalizePath(path) {
+  const [, pathname = "", suffix = ""] = path.match(/^([^?#]*)(.*)$/) || [];
+  const parts = [];
+
+  pathname.split("/").forEach((part) => {
+    if (!part || part === ".") return;
+    if (part === "..") {
+      parts.pop();
+      return;
+    }
+    parts.push(part);
+  });
+
+  return parts.join("/") + suffix;
+}
+
+function resolveDocHref(href, docPath) {
+  if (/^(?:[a-z][a-z0-9+.-]*:|#|\/)/i.test(href)) {
+    return href;
+  }
+  const docFolder = docPath.split("/").slice(0, -1).join("/");
+  return normalizePath(`${docFolder}/${href}`);
+}
+
+function resolveImageSrc(src, docPath) {
+  if (/^(?:[a-z][a-z0-9+.-]*:|#|\/)/i.test(src)) {
+    return src;
+  }
+
+  const cleanSrc = src.replace(/^\.\//, "");
+  if (!cleanSrc.includes("/")) {
+    const docFolder = docPath.split("/").slice(0, -1).join("/");
+    return normalizePath(`${docFolder}/images/${cleanSrc}`);
+  }
+
+  return resolveDocHref(src, docPath);
+}
+
+function linkAttributes(href, docPath) {
+  const resolvedHref = resolveDocHref(href, docPath);
+  const safeHref = isSafeLink(resolvedHref) ? escapeHtml(resolvedHref) : "#";
+  const isDocLink = resolvedHref.replace(/^\.\//, "").startsWith("docs/") && resolvedHref.split("#")[0].endsWith(".md");
+  if (resolvedHref.startsWith("#") || isDocLink) {
     return `href="${safeHref}"`;
   }
   return `href="${safeHref}" target="_blank" rel="noreferrer"`;
 }
 
-function inlineMarkdown(value) {
+function inlineMarkdown(value, docPath = "") {
   let output = escapeHtml(value);
   output = output.replace(/`([^`]+)`/g, "<code>$1</code>");
   output = output.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   output = output.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  output = output.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_match, alt, src) => {
+    const resolvedSrc = resolveImageSrc(src, docPath);
+    const safeSrc = isSafeLink(resolvedSrc) ? escapeHtml(resolvedSrc) : "";
+    return safeSrc ? `<img src="${safeSrc}" alt="${alt}" loading="lazy" />` : "";
+  });
   output = output.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, href) => {
-    return `<a ${linkAttributes(href)}>${label}</a>`;
+    return `<a ${linkAttributes(href, docPath)}>${label}</a>`;
   });
   output = output.replace(/(^|[\s(])((?:https?:\/\/|mailto:)[^\s<)]+)/g, (_match, prefix, href) => {
-    return `${prefix}<a ${linkAttributes(href)}>${href}</a>`;
+    return `${prefix}<a ${linkAttributes(href, docPath)}>${href}</a>`;
   });
   return output;
 }
 
-function parseMarkdown(markdown) {
+function parseMarkdown(markdown, docPath) {
   const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
   const html = [];
   let paragraph = [];
@@ -77,13 +122,13 @@ function parseMarkdown(markdown) {
 
   const closeParagraph = () => {
     if (!paragraph.length) return;
-    html.push(`<p>${inlineMarkdown(paragraph.join(" "))}</p>`);
+    html.push(`<p>${inlineMarkdown(paragraph.join(" "), docPath)}</p>`);
     paragraph = [];
   };
 
   const closeList = () => {
     if (!list) return;
-    html.push(`<${list.type}>${list.items.map((item) => `<li>${inlineMarkdown(item)}</li>`).join("")}</${list.type}>`);
+    html.push(`<${list.type}>${list.items.map((item) => `<li>${inlineMarkdown(item, docPath)}</li>`).join("")}</${list.type}>`);
     list = null;
   };
 
@@ -118,7 +163,7 @@ function parseMarkdown(markdown) {
       closeParagraph();
       closeList();
       const level = heading[1].length;
-      const text = inlineMarkdown(heading[2].trim());
+      const text = inlineMarkdown(heading[2].trim(), docPath);
       const id = slugify(heading[2]);
       html.push(`<h${level} id="${id}">${text}</h${level}>`);
       continue;
@@ -141,7 +186,7 @@ function parseMarkdown(markdown) {
     if (quote) {
       closeParagraph();
       closeList();
-      html.push(`<blockquote>${inlineMarkdown(quote[1])}</blockquote>`);
+      html.push(`<blockquote>${inlineMarkdown(quote[1], docPath)}</blockquote>`);
       continue;
     }
 
@@ -314,10 +359,11 @@ async function openDoc(path) {
   elements.libraryView.hidden = true;
   elements.docView.hidden = false;
   elements.docTitle.textContent = doc.title;
+  elements.topbarContext.textContent = doc.title;
   elements.breadcrumb.textContent = "Docs / " + doc.group;
   elements.docGroup.textContent = doc.group;
   elements.docPath.textContent = doc.path;
-  elements.markdownBody.innerHTML = parseMarkdown(markdown);
+  elements.markdownBody.innerHTML = parseMarkdown(markdown, doc.path);
   renderAssets(doc);
   buildToc();
   renderNav();
@@ -328,6 +374,7 @@ async function openDoc(path) {
 
 function showHome() {
   state.activePath = "";
+  elements.topbarContext.textContent = "Documentation home";
   elements.homeView.hidden = false;
   elements.libraryView.hidden = false;
   elements.docView.hidden = true;
