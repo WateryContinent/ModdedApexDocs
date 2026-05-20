@@ -6,7 +6,7 @@
 
 - Blender - https://www.blender.org/ or the Steam Store
 - Blender Source Tools plugin for Blender - https://developer.valvesoftware.com/wiki/Blender_Source_Tools
-- RSX (ReSource eXtractor) - https://www.github.com/r-ex/rsx
+- RSX (ReSource eXtractor) - https://github.com/r-ex/rsx
 - Crowbar - https://steamcommunity.com/groups/CrowbarTool
 - RePak - https://github.com/r-ex/RePak
 - A text editor, preferably Visual Studio Code or Notepad++
