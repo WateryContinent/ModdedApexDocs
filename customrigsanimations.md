@@ -10,6 +10,7 @@
 - Crowbar - https://steamcommunity.com/groups/CrowbarTool
 - RePak - https://github.com/r-ex/RePak
 - A text editor, preferably Visual Studio Code or Notepad++
+- SFM, Portal 2 or a Source game with studiomdl.exe older than Portal 2
 
 This guide will not teach you how to install and set up these tools.
 
