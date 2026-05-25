@@ -173,6 +173,8 @@ An example of using the Valve asset fallback system is presented below:
 
 - The checkerboard texture indicates a missing material and is the default VPK texture for missing textures. This means that the englishclient_common VPK can be patched to include new VMT materials or that a separate VPK can be loaded with the VMT materials
 
+**THE VMT MATERIALS USED BELOW REFLECT THE POSITION OF THE MESH ACCURATELY AND ARE APPLIED CORRECTLY BECAUSE THESE ARE REAL, EXISTING VMT MATERIALS, FROM TITANFALL 1, PACKED INTO VPKS!**
+
 ![Alt text](https://raw.githubusercontent.com/r5valkyrie/docs/refs/heads/main/docs/vpkfallback2.png)
 
 While Titanfall 2 mainly used proprietary Respawn materials, such as SKN, PTC, etc., the game also simultaneously used VMTs for everything from particle effects / systems (muzzle flashes, dirt, smoke, etc.) to sprites, to cables (ziplines, tethers, grapple cables), to VGUI (Valve Graphical User Interface) materials for Titan & MRVN UI and various other UI elements.
