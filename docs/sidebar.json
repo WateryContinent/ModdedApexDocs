@@ -1,0 +1,293 @@
+{
+    "startPage": "welcome",
+    "sidebar": [
+        {
+            "title": "Introduction",
+            "pages": [
+                {
+                    "title": "Welcome",
+                    "slug": "welcome"
+                },
+                {
+                    "title": "Getting Started",
+                    "slug": "getting-started"
+                },
+                {
+                    "title": "Installing R5Valkyrie on Linux",
+                    "slug": "install-linux"
+                }
+            ]
+        },
+        {
+            "title": "General Modding Info",
+            "pages": [
+                {
+                    "title": "Creating a mod",
+                    "slug": "creating-a-mod"
+                },          
+                {
+                    "title": "Playlist System",
+                    "slug": "mod-playlist-system"
+                },
+                {
+                    "title": "Publishing",
+                    "slug": "publishing-your-mod"
+                }
+            ]
+        },
+        {
+            "title": "Scripting",
+            "pages": [
+                {
+                    "title": "Scripts Quickstart",
+                    "slug": "scripts-quickstart"
+                },
+                {
+                    "title": "Squirrel_re Script Naming Conventions",
+                    "slug": "squirrel-script-naming-conventions"
+                },
+                {
+                    "title": "Mathematical Algebraic, Trigonometric and Vectorial Functions and Methods",
+                    "slug": "math-geometry"
+                },
+                {
+                    "title": "Weapons Quickstart",
+                    "slug": "weapons-quickstart"
+                },
+                {
+                    "title": "Weapon Functions and Methods",
+                    "slug": "weapon-functions"
+                }, 
+                {
+                    "title": "Entities, Spawning Entities, Entity Keyvalues and Flags",
+                    "slug": "entities-spawning-objects"
+                },
+                {
+                    "title": "Trigger Entities",
+                    "slug": "triggers"
+                },
+                {
+                    "title": "NPC / AI Methods, Functions, Keyvalues, Flags",
+                    "slug": "ai-npc"
+                },               
+                {
+                    "title": "Audio Functions and Commands",
+                    "slug": "audio-commands-functions"
+                },
+                {
+                    "title": "Proxy Entities",
+                    "slug": "proxy-entities"
+                },
+                {
+                    "title": "Color Correction / Screen Filter Scripting",
+                    "slug": "colorcorrection"
+                },
+                {
+                    "title": "Particle System Functions and Commands",
+                    "slug": "particle-effect-functions"
+                },
+                {
+                    "title": "Realms",
+                    "slug": "realms"
+                },
+                {
+                    "title": "Abilities (TODO)",
+                    "slug": "abilities"
+                },      
+                {
+                    "title": "Callback Functions (TODO)",
+                    "slug": "callbacks"
+                },   
+                {
+                    "title": "Client Commands (TODO)",
+                    "slug": "clientcommands"
+                },  
+                {
+                    "title": "Remote Functions (TODO)",
+                    "slug": "remote-functions"
+                },  
+                {
+                    "title": "Collision Hulls (TODO)",
+                    "slug": "collision-hulls"
+                },   
+                {
+                    "title": "The Crosshair (TODO)",
+                    "slug": "crosshair"
+                },   
+                {
+                    "title": "File Formats (TODO)",
+                    "slug": "file-formats"
+                },   
+                {
+                    "title": "Threads (pseudo-coroutines) & Signals (TODO)",
+                    "slug": "threads-signals"
+                },
+                {
+                    "title": "Localization (TODO)",
+                    "slug": "threads-signals"
+                },      
+                {
+                    "title": "Variadic Functions (variable arguments and argument number) (TODO)",
+                    "slug": "variadic-functions"
+                }              
+            ]
+        },
+       {
+            "title": "Asset Modding",
+            "pages": [
+                {
+                    "title": "File Formats (TODO)",
+                    "slug": "file-formats"
+                },  
+                {
+                    "title": "Sound Modding",
+                    "slug": "sound-modding"
+                },
+                {
+                    "title": "Audio Systems and Audio Implementation Overview",
+                    "slug": "audio-systems"
+                },
+                {
+                    "title": "Audio Event Dictionary",
+                    "slug": "audio-event-dictionary"
+                },
+                {
+                    "title": "RPAKs & RePak (TODO)",
+                    "slug": "rpaks"
+                },
+                {
+                    "title": "VPKs",
+                    "slug": "vpks"
+                },
+                {
+                    "title": "Textures (TODO)",
+                    "slug": "textures"
+                },     
+                {
+                    "title": "Materials",
+                    "slug": "materials"
+                },
+                {
+                    "title": "Valve Studiomdl",
+                    "slug": "studiomdl"
+                },
+                {
+                    "title": "Models (TODO)",
+                    "slug": "models"
+                },
+                {
+                    "title": "Animations, Animation Sequences and Rigs",
+                    "slug": "animations"
+                },     
+                {
+                    "title": "Datatables",
+                    "slug": "datatables"
+                },
+                {
+                    "title": "The Minimap (TODO)",
+                    "slug": "minimap"
+                },
+                {
+                    "title": "The User Interface (VGUI & RUI)",
+                    "slug": "user-interface"
+                },     
+                {
+                    "title": "Settings Assets (.STGS)",
+                    "slug": "stgs"
+                }                
+            ]
+        },
+
+         {
+            "title": "Modding Toolset",
+            "pages": [
+                {
+                    "title": "RePak (TODO)",
+                    "slug": "repak"
+                },
+                {
+                    "title": "JSONCompiler (TODO)",
+                    "slug": "jsoncompiler"
+                },
+                {
+                    "title": "010 Editor & ReSource Binary Templates (TODO)",
+                    "slug": "010-resource-templates"
+                },
+                {
+                    "title": "RSX (TODO)",
+                    "slug": "rsx"
+                },
+               {
+                    "title": "Crowbar / Studiomdl (TODO)",
+                    "slug": "crowbar-studiomdl"
+                },
+               {
+                    "title": "rmdlconv (TODO)",
+                    "slug": "rmdlconv"
+                },    
+                {
+                    "title": "R5-AnimConv (TODO)",
+                    "slug": "r5-animconv"
+                },            
+                {
+                    "title": "R5-AnimInspector (TODO)",
+                    "slug": "r5-animinspector"
+                },
+                {
+                    "title": "Paint.net / GIMP / Image editor app (TODO)",
+                    "slug": "image-editor"
+                },
+                {
+                    "title": "ReMDL (Crowbar + rmdlconv + R5-AnimConv + R5-AnimInspector) (TODO)",
+                    "slug": "remdl"
+                },
+                {
+                    "title": "Legion+ (TODO)",
+                    "slug": "legionplus"
+                },
+                {
+                    "title": "MRVN-Radiant",
+                    "slug": "mrvn-radiant"
+                },
+                {
+                    "title": "DepotDownloader (TODO)",
+                    "slug": "depotdownloader"
+                },
+                {
+                    "title": "RePak Atlas Creator (TODO)",
+                    "slug": "repak-atlas-creator"
+                },
+                {
+                    "title": "ReVPK / ReVPKEdit (TODO)",
+                    "slug": "revpk-revpkedit"
+                }
+            ]
+        },
+        {
+            "title": "Additional Helpful Material",
+            "pages": [
+                {
+                    "title": "Console Commands",
+                    "slug": "console-commands"
+                },
+                {
+                    "title": "Dev Menu",
+                    "slug": "dev-menu"
+                },
+                {
+                    "title": "File Name Reference",
+                    "slug": "file-name-reference"
+                }
+            ]
+        },
+        {
+            "title": "Hosting",
+            "pages": [
+                {
+                    "title": "RCON",
+                    "slug": "rcon"
+                }
+            ]
+        }
+    ]
+}

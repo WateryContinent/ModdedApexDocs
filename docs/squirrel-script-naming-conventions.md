@@ -1,0 +1,117 @@
+# Squirrel_re Script Naming Conventions
+
+Naming conventions are useful in programming, especially across a very large codebase, such as R5V's, so that multiple programmers can work together in harmony and so that code can be more easily read and understood. These sets of standards are meant to achieve a level of uniformity in code so as to increase efficiency and encourage open collaboration.
+
+Squirrel_re is the name used for Respawn's fork of the Squirrel scripting language. Squirrel was used by Respawn because it was the main language for VScripts (Valve Scripting) and Respawn used (and continue to use) Valve's Source Engine, with heavy modifications, forked from the Portal 2 branch.
+
+The file extensions for Squirrel contain "nut", because of the association between squirrels (the animals) and nuts (for clarification, this comes as standard with Squirrel and is not a naming convention).
+
+## File Names
+
+Server only scripts: underscore prefix
+
+```
+_entitystructs.gnut
+```
+
+Client only scripts: cl_ prefix
+
+```
+cl_entitystructs.gnut
+```
+
+Shared scripts: sh_ prefix
+
+```
+sh_init.gnut
+```
+
+## Extensions
+
+IMPORTANT MENTION: THIS IS ONLY A CONVENTION! THE FILE EXTENSION WON'T AFFECT SCRIPT COMPILATION!
+
+Files that contain systems and global helper functions: .gnut
+
+```
+_entitystructs.gnut
+```
+
+Weapon-level, etc. files: .nut
+
+```
+mp_weapon_nemesis.nut
+```
+
+## Variables
+
+In general, variables should use lowerCamelCase
+
+```
+var someVariable
+
+int someInteger = 1
+
+float someFloatingPointNumber
+
+string someString = "somestring"
+```
+
+## Functions
+
+Function names should use CamelCase
+
+```
+global function SomeFunction
+```
+
+## Constants
+
+Constants should be designated in ALL CAPS. They can use underscores
+```
+
+global const CONST_TABLE = {}
+
+const asset NEMESIS_FX_IDLE_MAGNET_FP = $"P_wpn_nem_idle_magnet_FP"
+```
+
+## Enums
+
+Enums should start with lowercase e and use lowerCamelCase
+
+```
+global enum eActiveInventorySlots
+{
+
+}
+```
+
+## Structs
+
+Structures should use CamelCase
+
+```
+global struct ServerWeaponStruct
+{
+
+}
+```
+
+Instances of the structure can inherit the structure's name, but in that case, they must use lowerCamelCase to distinguish them from the structs.
+
+```
+struct, instance
+
+InputHint inputHint
+
+WeaponPrimaryAttackParams weaponPrimaryAttackParams
+```
+
+
+## For-loop iterators
+
+"For-loop" iterators should be named "i", from "index" / "iterator"
+
+```
+for(int i = 0; i < max; i++)
+```
+
