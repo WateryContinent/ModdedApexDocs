@@ -11,7 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT / "docs"
 OUT_FILE = ROOT / "docs-manifest.json"
-RESOURCE_DIR_NAMES = ("assets", "images")
+RESOURCE_DIR_NAMES = ("assets", "media")
+ASSET_DIR_NAMES = ("assets",)
 
 
 def title_from_markdown(path: Path) -> str:
@@ -44,7 +45,7 @@ def readable_size(size: int) -> str:
 def asset_roots_for_doc(path: Path) -> list[Path]:
     parent = path.parent
     return [
-        parent / name for name in RESOURCE_DIR_NAMES
+        parent / name for name in ASSET_DIR_NAMES
     ] + [
         parent / f"{path.stem}-assets",
         parent / path.stem / "assets",

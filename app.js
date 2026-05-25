@@ -69,7 +69,27 @@ function resolveDocHref(href, docPath) {
   return normalizePath(`${docFolder}/${href}`);
 }
 
-function resolveImageSrc(src, docPath) {
+const videoExtensions = new Set(["mp4", "webm", "ogg", "mov", "m4v"]);
+
+function mediaExtension(src) {
+  const cleanPath = src.split(/[?#]/)[0];
+  const extension = cleanPath.split(".").pop();
+  return extension ? extension.toLowerCase() : "";
+}
+
+function mediaMimeType(src) {
+  const extension = mediaExtension(src);
+  if (extension === "mov") return "video/quicktime";
+  if (extension === "m4v") return "video/mp4";
+  if (extension) return `video/${extension}`;
+  return "video/mp4";
+}
+
+function isVideoSource(src) {
+  return videoExtensions.has(mediaExtension(src));
+}
+
+function resolveMediaSrc(src, docPath) {
   if (/^(?:[a-z][a-z0-9+.-]*:|#|\/)/i.test(src)) {
     return src;
   }
@@ -77,7 +97,7 @@ function resolveImageSrc(src, docPath) {
   const cleanSrc = src.replace(/^\.\//, "");
   if (!cleanSrc.includes("/")) {
     const docFolder = docPath.split("/").slice(0, -1).join("/");
-    return normalizePath(`${docFolder}/images/${cleanSrc}`);
+    return normalizePath(`${docFolder}/media/${cleanSrc}`);
   }
 
   return resolveDocHref(src, docPath);
@@ -99,9 +119,13 @@ function inlineMarkdown(value, docPath = "") {
   output = output.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   output = output.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   output = output.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_match, alt, src) => {
-    const resolvedSrc = resolveImageSrc(src, docPath);
+    const resolvedSrc = resolveMediaSrc(src, docPath);
     const safeSrc = isSafeLink(resolvedSrc) ? escapeHtml(resolvedSrc) : "";
-    return safeSrc ? `<img src="${safeSrc}" alt="${alt}" loading="lazy" />` : "";
+    if (!safeSrc) return "";
+    if (isVideoSource(resolvedSrc)) {
+      return `<video controls preload="metadata" title="${alt}"><source src="${safeSrc}" type="${escapeHtml(mediaMimeType(resolvedSrc))}" />${alt}</video>`;
+    }
+    return `<img src="${safeSrc}" alt="${alt}" loading="lazy" />`;
   });
   output = output.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, href) => {
     return `<a ${linkAttributes(href, docPath)}>${label}</a>`;
@@ -321,7 +345,6 @@ function assetKind(assetName) {
 
 function renderAssets(doc) {
   const assets = doc.assets || [];
-  const suggestedFolder = doc.path.replace(/\/[^/]+$/, "/assets/");
   const groups = assets.reduce((folders, asset) => {
     folders[asset.folder] = folders[asset.folder] || [];
     folders[asset.folder].push(asset);
@@ -329,44 +352,53 @@ function renderAssets(doc) {
   }, {});
 
   elements.assetPanel.innerHTML = `
-    <div class="asset-panel-head">
-      <div>
-        <p class="asset-title">Assets</p>
-        <small>${assets.length ? `${assets.length} files available` : "No files attached"}</small>
-      </div>
-      <span>${assets.length}</span>
-    </div>
     ${
       assets.length
-        ? `<div class="asset-list" role="list">
-            ${Object.entries(groups)
-              .map(
-                ([folder, folderAssets]) => `
-                  <section class="asset-group" aria-label="${escapeHtml(folder)}">
-                    <div class="asset-group-title">
-                      <strong>${escapeHtml(folder.split("/").pop() || folder)}</strong>
-                      <span>${folderAssets.length}</span>
-                    </div>
-                    <div class="asset-grid">
-                      ${folderAssets
-                        .map(
-                          (asset) => `
-                            <a class="asset-link" href="${encodeURI(asset.path)}" target="_blank" rel="noreferrer" role="listitem" title="${escapeHtml(asset.name)}">
-                              <span class="asset-type">${escapeHtml(assetKind(asset.name))}</span>
-                              <span class="asset-name">${escapeHtml(asset.name)}</span>
-                              <span class="asset-size">${escapeHtml(asset.size)}</span>
-                            </a>
-                          `,
-                        )
-                        .join("")}
-                    </div>
-                  </section>
-                `,
-              )
-              .join("")}
-          </div>
-          <p class="asset-note">Scroll inside this panel for more files.</p>`
-        : `<p class="asset-empty">No related files yet. Add files to <code>${escapeHtml(suggestedFolder)}</code>.</p>`
+        ? `<details class="asset-dropdown">
+            <summary class="asset-summary">
+              <span>
+                <span class="asset-title">Assets</span>
+                <small>${assets.length} files available</small>
+              </span>
+              <span class="asset-count">${assets.length}</span>
+            </summary>
+            <div class="asset-menu">
+              <div class="asset-list" role="list">
+                ${Object.entries(groups)
+                  .map(
+                    ([folder, folderAssets]) => `
+                      <section class="asset-group" aria-label="${escapeHtml(folder)}">
+                        <div class="asset-group-title">
+                          <strong>${escapeHtml(folder.split("/").pop() || folder)}</strong>
+                          <span>${folderAssets.length}</span>
+                        </div>
+                        <div class="asset-grid">
+                          ${folderAssets
+                            .map(
+                              (asset) => `
+                                <a class="asset-link" href="${encodeURI(asset.path)}" target="_blank" rel="noreferrer" role="listitem" title="${escapeHtml(asset.name)}">
+                                  <span class="asset-type">${escapeHtml(assetKind(asset.name))}</span>
+                                  <span class="asset-name">${escapeHtml(asset.name)}</span>
+                                  <span class="asset-size">${escapeHtml(asset.size)}</span>
+                                </a>
+                              `,
+                            )
+                            .join("")}
+                        </div>
+                      </section>
+                    `,
+                  )
+                  .join("")}
+              </div>
+            </div>
+          </details>`
+        : `<div class="asset-summary asset-summary-empty">
+            <span>
+              <span class="asset-title">Assets</span>
+              <small>No files attached</small>
+            </span>
+            <span class="asset-count">0</span>
+          </div>`
     }
   `;
 }
@@ -473,6 +505,12 @@ elements.markdownBody.addEventListener("click", (event) => {
     event.preventDefault();
     window.location.hash = `#/${docPath}`;
   }
+});
+
+document.addEventListener("click", (event) => {
+  const dropdown = elements.assetPanel.querySelector(".asset-dropdown[open]");
+  if (!dropdown || dropdown.contains(event.target)) return;
+  dropdown.open = false;
 });
 
 window.addEventListener("hashchange", route);

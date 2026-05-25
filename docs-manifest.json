@@ -40,18 +40,6 @@
           "path": "docs/animations/assets/ExampleRPAKForRePak.zip",
           "size": "18.5 KB",
           "folder": "animations/assets"
-        },
-        {
-          "name": "animationconcepts.png",
-          "path": "docs/animations/images/animationconcepts.png",
-          "size": "554.1 KB",
-          "folder": "animations/images"
-        },
-        {
-          "name": "animations.md",
-          "path": "docs/animations/images/animations.md",
-          "size": "57.3 KB",
-          "folder": "animations/images"
         }
       ]
     },
@@ -113,38 +101,7 @@
       "title": "Color Correction Materials",
       "path": "docs/color-correction/colorcorrection.md",
       "group": "Color Correction",
-      "assets": [
-        {
-          "name": "blackholeeffect.png",
-          "path": "docs/color-correction/images/blackholeeffect.png",
-          "size": "2.0 MB",
-          "folder": "color-correction/images"
-        },
-        {
-          "name": "bloodhoundeffect.png",
-          "path": "docs/color-correction/images/bloodhoundeffect.png",
-          "size": "2.6 MB",
-          "folder": "color-correction/images"
-        },
-        {
-          "name": "bloodhoundultcolorcorrection.png",
-          "path": "docs/color-correction/images/bloodhoundultcolorcorrection.png",
-          "size": "1001.0 KB",
-          "folder": "color-correction/images"
-        },
-        {
-          "name": "phaseshiftcolorcorrection.png",
-          "path": "docs/color-correction/images/phaseshiftcolorcorrection.png",
-          "size": "1.6 MB",
-          "folder": "color-correction/images"
-        },
-        {
-          "name": "stimeffect.png",
-          "path": "docs/color-correction/images/stimeffect.png",
-          "size": "2.3 MB",
-          "folder": "color-correction/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Console Commands",
@@ -180,179 +137,25 @@
       "title": "Entities, Entity Spawning, Entity Keyvalues and Flags",
       "path": "docs/entities/entities-spawning-objects.md",
       "group": "Entities",
-      "assets": [
-        {
-          "name": "carepackageproxyinvalid.png",
-          "path": "docs/entities/images/carepackageproxyinvalid.png",
-          "size": "2.6 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "carepackageproxyvalid.png",
-          "path": "docs/entities/images/carepackageproxyvalid.png",
-          "size": "2.3 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "mobilerespawnbeaconproxy.png",
-          "path": "docs/entities/images/mobilerespawnbeaconproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "pathfinderziplineproxy.png",
-          "path": "docs/entities/images/pathfinderziplineproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "rampartwallproxy.png",
-          "path": "docs/entities/images/rampartwallproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "revenant1p.png",
-          "path": "docs/entities/images/revenant1p.png",
-          "size": "43.2 KB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "revenant3p.png",
-          "path": "docs/entities/images/revenant3p.png",
-          "size": "54.9 KB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "wattsonfenceproxy.png",
-          "path": "docs/entities/images/wattsonfenceproxy.png",
-          "size": "2.4 MB",
-          "folder": "entities/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Prop Creation",
       "path": "docs/entities/prop_creation.md",
       "group": "Entities",
-      "assets": [
-        {
-          "name": "carepackageproxyinvalid.png",
-          "path": "docs/entities/images/carepackageproxyinvalid.png",
-          "size": "2.6 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "carepackageproxyvalid.png",
-          "path": "docs/entities/images/carepackageproxyvalid.png",
-          "size": "2.3 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "mobilerespawnbeaconproxy.png",
-          "path": "docs/entities/images/mobilerespawnbeaconproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "pathfinderziplineproxy.png",
-          "path": "docs/entities/images/pathfinderziplineproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "rampartwallproxy.png",
-          "path": "docs/entities/images/rampartwallproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "revenant1p.png",
-          "path": "docs/entities/images/revenant1p.png",
-          "size": "43.2 KB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "revenant3p.png",
-          "path": "docs/entities/images/revenant3p.png",
-          "size": "54.9 KB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "wattsonfenceproxy.png",
-          "path": "docs/entities/images/wattsonfenceproxy.png",
-          "size": "2.4 MB",
-          "folder": "entities/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Proxy Entities",
       "path": "docs/entities/proxy-entities.md",
       "group": "Entities",
-      "assets": [
-        {
-          "name": "carepackageproxyinvalid.png",
-          "path": "docs/entities/images/carepackageproxyinvalid.png",
-          "size": "2.6 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "carepackageproxyvalid.png",
-          "path": "docs/entities/images/carepackageproxyvalid.png",
-          "size": "2.3 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "mobilerespawnbeaconproxy.png",
-          "path": "docs/entities/images/mobilerespawnbeaconproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "pathfinderziplineproxy.png",
-          "path": "docs/entities/images/pathfinderziplineproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "rampartwallproxy.png",
-          "path": "docs/entities/images/rampartwallproxy.png",
-          "size": "1.8 MB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "revenant1p.png",
-          "path": "docs/entities/images/revenant1p.png",
-          "size": "43.2 KB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "revenant3p.png",
-          "path": "docs/entities/images/revenant3p.png",
-          "size": "54.9 KB",
-          "folder": "entities/images"
-        },
-        {
-          "name": "wattsonfenceproxy.png",
-          "path": "docs/entities/images/wattsonfenceproxy.png",
-          "size": "2.4 MB",
-          "folder": "entities/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "FATOM EVE",
       "path": "docs/eve/eve.md",
       "group": "Eve",
-      "assets": [
-        {
-          "name": "fatomeve.png",
-          "path": "docs/eve/images/fatomeve.png",
-          "size": "295.1 KB",
-          "folder": "eve/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "File Formats",
@@ -406,14 +209,7 @@
       "title": "Mathematical methods and functions",
       "path": "docs/math-geometry/math-geometry.md",
       "group": "Math Geometry",
-      "assets": [
-        {
-          "name": "graphlerpexplanationv2.png",
-          "path": "docs/math-geometry/images/graphlerpexplanationv2.png",
-          "size": "125.2 KB",
-          "folder": "math-geometry/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Minimap",
@@ -443,950 +239,79 @@
       "title": "Crowbar Studiomdl",
       "path": "docs/modding-tools/crowbar-studiomdl.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Depotdownloader",
       "path": "docs/modding-tools/depotdownloader.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Jsoncompiler",
       "path": "docs/modding-tools/jsoncompiler.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Legionplus",
       "path": "docs/modding-tools/legionplus.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "MRVN-Radiant Guide",
       "path": "docs/modding-tools/mrvn-radiant.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "R5 Animconv",
       "path": "docs/modding-tools/r5-animconv.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "R5 Animinspector",
       "path": "docs/modding-tools/r5-animinspector.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Remdl",
       "path": "docs/modding-tools/remdl.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Repak Atlas Creator",
       "path": "docs/modding-tools/repak-atlas-creator.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Repak",
       "path": "docs/modding-tools/repak.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Rmdlconv",
       "path": "docs/modding-tools/rmdlconv.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Rsx",
       "path": "docs/modding-tools/rsx.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "StudioMDL",
       "path": "docs/modding-tools/studiomdl.md",
       "group": "Modding Tools",
-      "assets": [
-        {
-          "name": "radiant2dviewportv2.png",
-          "path": "docs/modding-tools/images/radiant2dviewportv2.png",
-          "size": "95.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "radiant3dviewport.png",
-          "path": "docs/modding-tools/images/radiant3dviewport.png",
-          "size": "238.5 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpk-revpkedit.md",
-          "path": "docs/modding-tools/images/revpk-revpkedit.md",
-          "size": "0 B",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit1.png",
-          "path": "docs/modding-tools/images/revpkedit1.png",
-          "size": "103.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit2.png",
-          "path": "docs/modding-tools/images/revpkedit2.png",
-          "size": "131.2 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit3.png",
-          "path": "docs/modding-tools/images/revpkedit3.png",
-          "size": "375.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit4.png",
-          "path": "docs/modding-tools/images/revpkedit4.png",
-          "size": "166.9 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit5.png",
-          "path": "docs/modding-tools/images/revpkedit5.png",
-          "size": "65.1 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit6.png",
-          "path": "docs/modding-tools/images/revpkedit6.png",
-          "size": "64.3 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit7.png",
-          "path": "docs/modding-tools/images/revpkedit7.png",
-          "size": "70.7 KB",
-          "folder": "modding-tools/images"
-        },
-        {
-          "name": "revpkedit8.png",
-          "path": "docs/modding-tools/images/revpkedit8.png",
-          "size": "627.3 KB",
-          "folder": "modding-tools/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Models",
@@ -1398,20 +323,7 @@
       "title": "Particle Effects",
       "path": "docs/particle-systems-effects/particle-effect-functions.md",
       "group": "Particle Systems Effects",
-      "assets": [
-        {
-          "name": "gravlifteffect.png",
-          "path": "docs/particle-systems-effects/images/gravlifteffect.png",
-          "size": "1.9 MB",
-          "folder": "particle-systems-effects/images"
-        },
-        {
-          "name": "stimeffect.png",
-          "path": "docs/particle-systems-effects/images/stimeffect.png",
-          "size": "2.3 MB",
-          "folder": "particle-systems-effects/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Player Entity Methods and Functions",
@@ -1447,312 +359,31 @@
       "title": "VGUI (Valve GUI)",
       "path": "docs/respawn-and-valve-UI/user-interface.md",
       "group": "Respawn And Valve Ui",
-      "assets": [
-        {
-          "name": "archerscreen.png",
-          "path": "docs/respawn-and-valve-UI/images/archerscreen.png",
-          "size": "4.2 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "archerscreen2.png",
-          "path": "docs/respawn-and-valve-UI/images/archerscreen2.png",
-          "size": "4.0 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "arcstareffect.png",
-          "path": "docs/respawn-and-valve-UI/images/arcstareffect.png",
-          "size": "1.7 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "blenderre45r1.png",
-          "path": "docs/respawn-and-valve-UI/images/blenderre45r1.png",
-          "size": "389.4 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "devscanline.png",
-          "path": "docs/respawn-and-valve-UI/images/devscanline.png",
-          "size": "69.2 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "empflow.png",
-          "path": "docs/respawn-and-valve-UI/images/empflow.png",
-          "size": "173.3 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "hudanimations.png",
-          "path": "docs/respawn-and-valve-UI/images/hudanimations.png",
-          "size": "58.2 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "hudscriptedmp.png",
-          "path": "docs/respawn-and-valve-UI/images/hudscriptedmp.png",
-          "size": "40.5 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "hudscriptedmp2.png",
-          "path": "docs/respawn-and-valve-UI/images/hudscriptedmp2.png",
-          "size": "45.7 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "mosaicnoise.png",
-          "path": "docs/respawn-and-valve-UI/images/mosaicnoise.png",
-          "size": "113.0 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "r1kraber.png",
-          "path": "docs/respawn-and-valve-UI/images/r1kraber.png",
-          "size": "1.3 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "smartpistollockon.png",
-          "path": "docs/respawn-and-valve-UI/images/smartpistollockon.png",
-          "size": "2.9 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "smartpistollockon2.png",
-          "path": "docs/respawn-and-valve-UI/images/smartpistollockon2.png",
-          "size": "2.5 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "titanfall1ui.png",
-          "path": "docs/respawn-and-valve-UI/images/titanfall1ui.png",
-          "size": "2.5 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "titanfall1ui2.png",
-          "path": "docs/respawn-and-valve-UI/images/titanfall1ui2.png",
-          "size": "1.9 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "titanfall1ui3.png",
-          "path": "docs/respawn-and-valve-UI/images/titanfall1ui3.png",
-          "size": "1.8 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "titanfall1ui4.png",
-          "path": "docs/respawn-and-valve-UI/images/titanfall1ui4.png",
-          "size": "2.4 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "titanfall1ui5.png",
-          "path": "docs/respawn-and-valve-UI/images/titanfall1ui5.png",
-          "size": "1.0 MB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "vguipilotlauncher.png",
-          "path": "docs/respawn-and-valve-UI/images/vguipilotlauncher.png",
-          "size": "52.3 KB",
-          "folder": "respawn-and-valve-UI/images"
-        },
-        {
-          "name": "vguiscreenspng.png",
-          "path": "docs/respawn-and-valve-UI/images/vguiscreenspng.png",
-          "size": "37.9 KB",
-          "folder": "respawn-and-valve-UI/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Materials",
       "path": "docs/respawn-and-valve-materials/materials.md",
       "group": "Respawn And Valve Materials",
-      "assets": [
-        {
-          "name": "devscanline.png",
-          "path": "docs/respawn-and-valve-materials/images/devscanline.png",
-          "size": "69.2 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "empflow.png",
-          "path": "docs/respawn-and-valve-materials/images/empflow.png",
-          "size": "173.3 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "mosaicnoise.png",
-          "path": "docs/respawn-and-valve-materials/images/mosaicnoise.png",
-          "size": "113.0 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "r1kraber.png",
-          "path": "docs/respawn-and-valve-materials/images/r1kraber.png",
-          "size": "1.3 MB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "re45uvunwrap.png",
-          "path": "docs/respawn-and-valve-materials/images/re45uvunwrap.png",
-          "size": "155.6 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "titanempvmt.png",
-          "path": "docs/respawn-and-valve-materials/images/titanempvmt.png",
-          "size": "37.4 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vmtoverride.png",
-          "path": "docs/respawn-and-valve-materials/images/vmtoverride.png",
-          "size": "50.4 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vmts2.png",
-          "path": "docs/respawn-and-valve-materials/images/vmts2.png",
-          "size": "1.1 MB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vmts3.png",
-          "path": "docs/respawn-and-valve-materials/images/vmts3.png",
-          "size": "713.5 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vpkfallback1.png",
-          "path": "docs/respawn-and-valve-materials/images/vpkfallback1.png",
-          "size": "2.9 MB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vpkfallback2.png",
-          "path": "docs/respawn-and-valve-materials/images/vpkfallback2.png",
-          "size": "2.4 MB",
-          "folder": "respawn-and-valve-materials/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Textures",
       "path": "docs/respawn-and-valve-materials/textures.md",
       "group": "Respawn And Valve Materials",
-      "assets": [
-        {
-          "name": "devscanline.png",
-          "path": "docs/respawn-and-valve-materials/images/devscanline.png",
-          "size": "69.2 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "empflow.png",
-          "path": "docs/respawn-and-valve-materials/images/empflow.png",
-          "size": "173.3 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "mosaicnoise.png",
-          "path": "docs/respawn-and-valve-materials/images/mosaicnoise.png",
-          "size": "113.0 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "r1kraber.png",
-          "path": "docs/respawn-and-valve-materials/images/r1kraber.png",
-          "size": "1.3 MB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "re45uvunwrap.png",
-          "path": "docs/respawn-and-valve-materials/images/re45uvunwrap.png",
-          "size": "155.6 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "titanempvmt.png",
-          "path": "docs/respawn-and-valve-materials/images/titanempvmt.png",
-          "size": "37.4 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vmtoverride.png",
-          "path": "docs/respawn-and-valve-materials/images/vmtoverride.png",
-          "size": "50.4 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vmts2.png",
-          "path": "docs/respawn-and-valve-materials/images/vmts2.png",
-          "size": "1.1 MB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vmts3.png",
-          "path": "docs/respawn-and-valve-materials/images/vmts3.png",
-          "size": "713.5 KB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vpkfallback1.png",
-          "path": "docs/respawn-and-valve-materials/images/vpkfallback1.png",
-          "size": "2.9 MB",
-          "folder": "respawn-and-valve-materials/images"
-        },
-        {
-          "name": "vpkfallback2.png",
-          "path": "docs/respawn-and-valve-materials/images/vpkfallback2.png",
-          "size": "2.4 MB",
-          "folder": "respawn-and-valve-materials/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Rpaks",
       "path": "docs/rpak-and-vpk-archives/rpaks.md",
       "group": "Rpak And Vpk Archives",
-      "assets": [
-        {
-          "name": "vpkfallback1.png",
-          "path": "docs/rpak-and-vpk-archives/images/vpkfallback1.png",
-          "size": "2.9 MB",
-          "folder": "rpak-and-vpk-archives/images"
-        },
-        {
-          "name": "vpkfallback2.png",
-          "path": "docs/rpak-and-vpk-archives/images/vpkfallback2.png",
-          "size": "2.4 MB",
-          "folder": "rpak-and-vpk-archives/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "VPKs (Valve Packs)",
       "path": "docs/rpak-and-vpk-archives/vpks.md",
       "group": "Rpak And Vpk Archives",
-      "assets": [
-        {
-          "name": "vpkfallback1.png",
-          "path": "docs/rpak-and-vpk-archives/images/vpkfallback1.png",
-          "size": "2.9 MB",
-          "folder": "rpak-and-vpk-archives/images"
-        },
-        {
-          "name": "vpkfallback2.png",
-          "path": "docs/rpak-and-vpk-archives/images/vpkfallback2.png",
-          "size": "2.4 MB",
-          "folder": "rpak-and-vpk-archives/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Scripts Quickstart",
@@ -1776,14 +407,7 @@
       "title": "Trigger Entities",
       "path": "docs/trigger-entities/triggers.md",
       "group": "Trigger Entities",
-      "assets": [
-        {
-          "name": "triggerexample.png",
-          "path": "docs/trigger-entities/images/triggerexample.png",
-          "size": "195.3 KB",
-          "folder": "trigger-entities/images"
-        }
-      ]
+      "assets": []
     },
     {
       "title": "Variadic Functions",
