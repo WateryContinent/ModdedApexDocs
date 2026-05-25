@@ -161,9 +161,9 @@ VMTs are also fallback materials if the engine cannot locate material dependenci
 
 An example of using the Valve asset fallback system is presented below:
 
-**WARNING: USING THE VMT FALLBACK SYSTEM WITH INVALID MATERIALS (MISSING TEXTURES, ETC.) WILL CAUSE MESH TRANSFORM ISSUES LIKE OFFSETS FROM THEIR INTENDED POSITIONS, BECAUSE OF THE VERTEX SHADERS USED. THE POSITION OF MESHES WITH INVALID MATERIALS IS NOT ACCURATE!**
+**WARNING: USING THE VMT FALLBACK SYSTEM WITH INVALID MATERIALS (MISSING TEXTURES, ETC.) WILL CAUSE MESH TRANSFORM ISSUES LIKE OFFSETS FROM THEIR INTENDED POSITIONS, DUE TO THE VERTEX SHADERS USED. THE SCREENSPACE POSITION OF MESHES WITH INVALID MATERIALS IS NOT ACCURATE!**
 
-- Using a hex editor (such as 010 Editor) and the Respawn Binary Templates written by r-exx and rika, it is possible to open Respawn assets such as RMDL's and set their material / texture GUIDs to 0 / null them, prior to packing them into RPAKs, using RePak
+- Using a hex editor (such as 010 Editor) and the Respawn Binary Templates written by r-exx and rika, it is possible to open Respawn assets such as RMDL's and set their material / texture GUIDs to 0 / null them, prior to packing them into RPAKs, using RePak. In 010 Editor, go to Templates -> Open Template and open RMDL v8. Afterwards, go to Templates -> Run Template and run the Binary Template on the RMDL model.
 
 ![Alt text](https://raw.githubusercontent.com/r5valkyrie/docs/refs/heads/main/docs/vmtoverride.png)
 
