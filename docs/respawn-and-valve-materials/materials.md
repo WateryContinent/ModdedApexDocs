@@ -169,6 +169,8 @@ An example of using the Valve asset fallback system is presented below:
 
 - This will cause the Valve asset fallback system to kick in
 
+**OBSERVE THE OFFSET OF THE WEAPON'S MESH! THE MODEL IS IN THE COMPLETELY WRONG POSITION AND THE AMMO COUNTER MATERIALS ARE NOT APPLIED CORRECTLY!**
+
 ![Alt text](https://raw.githubusercontent.com/r5valkyrie/docs/refs/heads/main/docs/vpkfallback1.png)
 
 - The checkerboard texture indicates a missing material and is the default VPK texture for missing textures. This means that the englishclient_common VPK can be patched to include new VMT materials or that a separate VPK can be loaded with the VMT materials
