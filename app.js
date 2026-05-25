@@ -264,7 +264,7 @@ function filteredDocs() {
 }
 
 function buildToc() {
-  const headings = [...elements.markdownBody.querySelectorAll("h2, h3")];
+  const headings = [...elements.markdownBody.querySelectorAll("h2")];
   if (!headings.length) {
     elements.toc.innerHTML = "";
     return;
@@ -298,7 +298,7 @@ function setActiveToc(id) {
 }
 
 function updateActiveToc() {
-  const headings = [...elements.markdownBody.querySelectorAll("h2, h3")];
+  const headings = [...elements.markdownBody.querySelectorAll("h2")];
   if (!headings.length || elements.docView.hidden) return;
 
   const offset = 130;
@@ -322,26 +322,50 @@ function assetKind(assetName) {
 function renderAssets(doc) {
   const assets = doc.assets || [];
   const suggestedFolder = doc.path.replace(/\/[^/]+$/, "/assets/");
+  const groups = assets.reduce((folders, asset) => {
+    folders[asset.folder] = folders[asset.folder] || [];
+    folders[asset.folder].push(asset);
+    return folders;
+  }, {});
 
   elements.assetPanel.innerHTML = `
     <div class="asset-panel-head">
-      <p class="asset-title">Assets</p>
+      <div>
+        <p class="asset-title">Assets</p>
+        <small>${assets.length ? `${assets.length} files available` : "No files attached"}</small>
+      </div>
       <span>${assets.length}</span>
     </div>
     ${
       assets.length
-        ? `<div class="asset-list">
-            ${assets
+        ? `<div class="asset-list" role="list">
+            ${Object.entries(groups)
               .map(
-                (asset) => `
-                  <a class="asset-link" href="${encodeURI(asset.path)}" target="_blank" rel="noreferrer">
-                    <strong>${escapeHtml(asset.name)}</strong>
-                    <small>${escapeHtml(assetKind(asset.name))} / ${escapeHtml(asset.size)}</small>
-                  </a>
+                ([folder, folderAssets]) => `
+                  <section class="asset-group" aria-label="${escapeHtml(folder)}">
+                    <div class="asset-group-title">
+                      <strong>${escapeHtml(folder.split("/").pop() || folder)}</strong>
+                      <span>${folderAssets.length}</span>
+                    </div>
+                    <div class="asset-grid">
+                      ${folderAssets
+                        .map(
+                          (asset) => `
+                            <a class="asset-link" href="${encodeURI(asset.path)}" target="_blank" rel="noreferrer" role="listitem" title="${escapeHtml(asset.name)}">
+                              <span class="asset-type">${escapeHtml(assetKind(asset.name))}</span>
+                              <span class="asset-name">${escapeHtml(asset.name)}</span>
+                              <span class="asset-size">${escapeHtml(asset.size)}</span>
+                            </a>
+                          `,
+                        )
+                        .join("")}
+                    </div>
+                  </section>
                 `,
               )
               .join("")}
-          </div>`
+          </div>
+          <p class="asset-note">Scroll inside this panel for more files.</p>`
         : `<p class="asset-empty">No related files yet. Add files to <code>${escapeHtml(suggestedFolder)}</code>.</p>`
     }
   `;
