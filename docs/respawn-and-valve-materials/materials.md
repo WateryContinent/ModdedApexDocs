@@ -61,24 +61,24 @@ At their core, material files are binary files which store data such as:
 - Many slots for Titanfall 2 SKN materials are DIFFERENT from Apex Legends slots! ALWAYS check to see if they are set properly.
 - The meaning of each slot in the engine is represented in this list below:
 
-slot0: _col  (albedo / diffuse map - [Note: these maps contain the base surface colors](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-69603DC2-F58C-4053-A955-EA19FDB8D084))  
-slot1: _nml (normal map - [Note: these mimic light interaction with real surface geometry, to simulate depth, surface details, etc.](https://docs.unity3d.com/6000.3/Documentation/Manual/StandardShaderMaterialParameterNormalMap.html))  
-slot2: _gls/_exp (glossiness map - [Note: controls glossiness levels](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-76F225CD-982A-4F17-9935-A656E6878BCD))    
-slot3: _spc (specular map - [Note: greyscale texture map for shininess / matteness](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-76F225CD-982A-4F17-9935-A656E6878BCD))  
-slot4: _ilm (emissive / self-illumination map - [Note: texture map for making the object appear to glow](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-0584ED4B-FE91-4B0B-A09C-22557D5D51DD))    
-slot5: _ao (ambient occlusion map - [Note: article on ambient occlusion maps, by Paul H. Paulino](https://www.paulhpaulino.com/the-vfx-map-baking-guide-ambient-occlusion))    
-slot6: _cav/cvt (cavity map - [Note: article on cavity maps, by Paul H. Paulino](https://www.paulhpaulino.com/improve-your-organic-textures-with-a-cavity-map))    
-slot7: _opa (opacity map - Note: controls opacity / transparency)  
-slot8: detail/camo   
-slot9: _dm_nml/_nml (detail normal map)  
-slot10: _msk (detail texture mask - [Note: article on texture masks by Epic Games](https://dev.epicgames.com/documentation/en-us/unreal-engine/using-texture-masks-in-unreal-engine))    
+- slot0: _col  (albedo / diffuse map - [Note: these maps contain the base surface colors](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-69603DC2-F58C-4053-A955-EA19FDB8D084))  
+- slot1: _nml (normal map - [Note: these mimic light interaction with real surface geometry, to simulate depth, surface details, etc.](https://docs.unity3d.com/6000.3/Documentation/Manual/StandardShaderMaterialParameterNormalMap.html))  
+- slot2: _gls/_exp (glossiness map - [Note: controls glossiness levels](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-76F225CD-982A-4F17-9935-A656E6878BCD))    
+- slot3: _spc (specular map - [Note: greyscale texture map for shininess / matteness](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-76F225CD-982A-4F17-9935-A656E6878BCD))  
+- slot4: _ilm (emissive / self-illumination map - [Note: texture map for making the object appear to glow](https://help.autodesk.com/view/3DSMAX/2017/ENU/?guid=GUID-0584ED4B-FE91-4B0B-A09C-22557D5D51DD))    
+- slot5: _ao (ambient occlusion map - [Note: article on ambient occlusion maps, by Paul H. Paulino](https://www.paulhpaulino.com/the-vfx-map-baking-guide-ambient-occlusion))    
+- slot6: _cav/cvt (cavity map - [Note: article on cavity maps, by Paul H. Paulino](https://www.paulhpaulino.com/improve-your-organic-textures-with-a-cavity-map))    
+- slot7: _opa (opacity map - Note: controls opacity / transparency)  
+- slot8: detail/camo   
+- slot9: _dm_nml/_nml (detail normal map)  
+- slot10: _msk (detail texture mask - [Note: article on texture masks by Epic Games](https://dev.epicgames.com/documentation/en-us/unreal-engine/using-texture-masks-in-unreal-engine))    
 
 Blend Materials (used for maps):  
-slot16: _bm (blendmap)  
-slot22: _col (albedo / diffuse map - Note: base colors)  
-slot23: _nml (normal map - Note: light interaction with the surface, to simulate depth, surface details, etc.)  
-slot24: _gls/_exp (glossiness map)  
-slot25: _spc (specular map - Note: greyscale texture map for shininess / matteness)
+- slot16: _bm (blendmap)  
+- slot22: _col (albedo / diffuse map - Note: base colors)  
+- slot23: _nml (normal map - Note: light interaction with the surface, to simulate depth, surface details, etc.)  
+- slot24: _gls/_exp (glossiness map)  
+- slot25: _spc (specular map - Note: greyscale texture map for shininess / matteness)
 
 IMPORTANT NOTE: Different material types have different texture slots (i.e.: SKNP, PTCU, etc.)
 
@@ -160,6 +160,8 @@ Since R5V is based on the Season 3 build of Apex Legends, it still uses VMTs for
 VMTs are also fallback materials if the engine cannot locate material dependencies in R5V.  
 
 An example of using the Valve asset fallback system is presented below:
+
+**WARNING: USING THE VMT FALLBACK SYSTEM WITH INVALID MATERIALS (MISSING TEXTURES, ETC.) WILL CAUSE MESH TRANSFORM ISSUES LIKE OFFSETS FROM THEIR INTENDED POSITIONS, BECAUSE OF THE VERTEX SHADERS USED. THE POSITION OF MESHES WITH INVALID MATERIALS IS NOT ACCURATE!**
 
 - Using a hex editor (such as 010 Editor) and the Respawn Binary Templates written by r-exx and rika, it is possible to open Respawn assets such as RMDL's and set their material / texture GUIDs to 0 / null them, prior to packing them into RPAKs, using RePak
 
