@@ -147,12 +147,12 @@ $sequence "draw" {
 }
 ```
 
-Additional sections will delve deeper into the elements contained in this $sequence., which are:
+Additional sections will delve deeper into the elements contained in this $sequence, which are:
 
 ```
 1) $animations used by the $sequence
-2)  The amount of columns the blend contains (the number of rows is determined automatically)
-3)  Assigning the crouchFraction $poseparameter to control the blend interpolation, from the min value of 0 to the max value of 1 
+2) The amount of columns the blend contains (the number of rows is determined automatically)
+3) Assigning the crouchFraction $poseparameter to control the blend interpolation, from the min value of 0 to the max value of 1 
 4) The activity that the $sequence is assigned to (activities are indirected names / aliases that animations are grouped under) and the weight for this specific $sequence (out of all the $sequences grouped under the specific activity, where the weight of each $sequence = the weight of the sequence / the sum of all the weights of all the $sequences grouped under the specific activity)
 5) The transition node that the $sequence is grouped under. It is possible to assign transition animations between different nodes. If a transition node is not specified, the $sequence is assigned to the root node. By default, the root node has no transition animations to and from it.
 6) Animation events - these are flags set at a specific frame in an animation sequence which communicate to the engine that an event is supposed to take place at that specific frame. Animation events are prefixed with AE_, are preceded by the keyword "event" and are encased in curly brackets {}. There are very many possible Animation Events. The two Animation Events used in this $sequence are the Clientside Play Sound Event flag and the Weapon Ready To Fire flag. The flags type is succeeded by the frame number it is activated on. Other arguments can follow, such as the name of the Sound Event, for Play Sound Event Animation Events. **Frames start from 0!**
