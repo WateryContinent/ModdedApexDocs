@@ -241,10 +241,12 @@ CALLBACK = From "Callback functions" in programming, these Animation Events call
 For organization purposes, the events have been grouped by the type of function they server rather than the type of VM they are associated with (CLIENT or SERVER):
 
 AE_WPN_READYTOFIRE // frame that the weapon / ability can be fired on; until this is signalled, the player cannot fire the weapon / use the ability
+```
 
+Apex Legends has a Segmented Reload system.
+This means that after you complete a segment of the animation (a.k.a. reach a "milestone"), the engine remembers and if you switch to doing another action, you can resume the reload from the beginning of that milestone. This also applies to weapons like the Mastiff and 30-30 Repeater which have looping individual shell / round reloading which you can cancel to shoot, for example, however their mechanisms are different from those of automatic weapons.
 
-Apex Legends has a Segmented Reload system which means that after you complete a segment of the animation (a.k.a. reach a "milestone"), the engine remembers and if you switch to doing another action, you can resume the reload from the beginning of that milestone. This also applies to weapons like the Mastiff and 30-30 Repeater which have looping individual shell / round reloading which you can cancel to shoot, for example, however their mechanisms are different from those of automatic weapons.
-
+```
 AE_WPN_RELOAD_MILESTONE_1 // frame that the first segmented reload milestone is reached on (might be magazine insert for automatic weapons)
 AE_WPN_RELOAD_MILESTONE_2 // frame that the second segmented reload milestone is reached on (might be racking the charging handle for automatic weapons)
 AE_WPN_FILLAMMO // callback to refill the ammo of the weapon
@@ -252,37 +254,49 @@ AE_WPN_SEGMENTED_RELOAD_ADD_AMMO // frame to add 1 round of ammo on for segmente
 AE_WPN_SEGMENTED_RELOAD_ENTER_LOOP // frame to enter the segmented reload loop on (in this case, the reload loops until n-1, where n is the magazine capacity. When n is reached, the end animation is played)
 AE_WPN_SEGMENTED_RELOAD_LOOP_LOCK_FIRE // frame of segmented reload animation sequence that the player can no longer fire at
 AE_WPN_SEGMENTED_RELOAD_LOOP_CANRESTART // frame of the looping segmented reload animation sequence that the animation can restart at
+```
 
-
+```
 AE_CL_PLAYSOUND // frame to play a client-sided only sound at, followed by a 3rd parameter which is the name of the Sound Event (NOT audio clip!)
-AE_CL_PLAYSOUND_FOR_TYPE // 3rd argument is the type of sound assigned to a legend in their own settings file; this is useful and necessary for making generic animations because each different character has their own voicelines corresponding to specific event types, such as throwing a grenade. Crypto and Wraith, for example, won't have the same Audio Event with the same name, for voicelines corresponding to the same actions. Therefore, it is up to the game engine to resolve which character the animation sequence is being executed on and decide which Audio Event should Play.
+AE_CL_PLAYSOUND_FOR_TYPE 
+```
 
+3rd argument is the type of sound assigned to a legend in their own settings file; this is useful and necessary for making generic animations because each different character has their own voicelines corresponding to specific event types, such as throwing a grenade. Crypto and Wraith, for example, won't have the same Audio Event with the same name, for voicelines corresponding to the same actions. Therefore, it is up to the game engine to resolve which character the animation sequence is being executed on and decide which Audio Event should Play.
+
+```
 Example: 
 
 {  event "AE_CL_PLAYSOUND_FOR_TYPE" 0 "effort_climb_1p" }
+```
 
-This is for a generic wall climb animation sequence. If you're playing Wraith, a Wraith voiceline of the type "effort_climb_1p" will be played. This is so that Respawn didn't have to create a separate, identical animation sequence playing a specific Audio Event for every single character in the game, which would've been extremely redundant and very time-consuming, considering how many legends there were, without even taking into consideration future expansions of the game's legend roster.
+This is for a generic wall climb animation sequence. If you're playing Wraith, a Wraith voiceline of the type "effort_climb_1p" will be played. 
+This is so that Respawn didn't have to create a separate, identical animation sequence playing a specific Audio Event for every single character in the game, which would've been extremely redundant and very time-consuming, considering how many legends there were, without even taking into consideration future expansions of the game's legend roster.
 
+```
 AE_CL_STOPSOUND // frame to stop a client-sided only sound at, followed by a 3rd parameter which is the name of the Sound Event (NOT audio clip!) 
+```
 
 
 AE_CL_CREATE_PROP // 3rd parameter is complicated and not well understood, but it seems to be an identifier such as "p@" followed by a hexadecimal GUID, followed by the prop's RMDL model, then the attachment point for it to be parented to on the RRIG the animation sequence is played on, all encased in quotation marks. The GUID is not the GUID corresponding to the prop's model in an RPAK. This animation event is responsible for communicating to the engine when, during an animation, a Client-Sided Prop is meant to spawn, which model it should use, and which attachment point it should be attached to, so that it ca follow its movements
 
+```
 Example:
 
 {  event "AE_CL_CREATE_PROP" 0 "p@0x821967F4FD93D_0 mdl/weapons/shuriken/w_shuriken.rmdl KNIFE" }
 {  event "AE_CL_CREATE_PROP" 0 "p@0x21D3DC33DDD32_0 mdl/props/health_injector/health_injector.rmdl KNIFE animseq/health_injector/dmx/animation/prop_health_injector_short.rseq" }
 
 AE_CL_DESTROY_PROP // 3rd parameter is only the identifier with the GUID, i.e. "p@0x821967F4FD93D_0"
+```
 
-
+```
 AE_GROUNDCONTACT_L
 
 Example:
 
 {  event "AE_GROUND_CONTACT_L" 0 "LandSweetener_High" }
+```
 
-
+```
 AE_CL_CREATE_PARTICLE_EFFECT // 3rd parameter are the Particle Effect's name, its behavior (follow, no follow, etc.) and the attachment point it should spawn on, all encapsulated in quotation marks
 
 Example:
@@ -294,8 +308,9 @@ In order to stop a particle effect, use AE_CL_STOP_PARTICLE_EFFECT
 Example:
 
 { event AE_CL_STOP_PARTICLE_EFFECT 560 "P_interior_Dlight_blue_MED_intro" }
+```
 
-
+```
 AE_CL_VSCRIPT_CALLBACK // special Animation Event, calls a CLIENT-ONLY function registered in VScripts, the function name is the 3rd parameter - CLIENT ONLY, SO COSMETIC / PRESENTATION!
 
 Examples:
@@ -314,10 +329,14 @@ Examples:
 {  event "AE_SV_VSCRIPT_CALLBACK" 31 "set_body_group:l_hand_usb:1" }
 {  event "AE_SV_VSCRIPT_CALLBACK" 31 "set_body_group:l_hand:1" }
 { event AE_SV_VSCRIPT_CALLBACK 320 "dropship_deploy" }
+```
 
+Animation Window Animation Events are probably the most complicated type of events. 
+Respawn almost certainly created Animation Window settings files to be able to have granular control over what happens during animation sequences, so as to be able to make advanced animations. 
+These Animation Windows settings files allow for deep configuration of events that happen during animations. 
+They can contain settings for which props to create, which kind of UI elements to use, sounds to play and more.
 
-Animation Window Animation Events are probably the most complicated type of events. Respawn almost certainly created Animation Window settings files to be able to have granular control over what happens during animation sequences, so as to be able to make advanced animations. These Animation Windows settings files allow for deep configuration of events that happen during animations. They can contain settings for which props to create, which kind of UI elements to use, sounds to play and more.
-
+```
 The format is:
 
 { event "AE_CL_SCRIPT_ANIM_WINDOW_BEGIN" framenumber " UNKNOWN_SEQUENCE path/to/animation/window/settings/file.rpak }
