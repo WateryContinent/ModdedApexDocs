@@ -339,7 +339,7 @@ Examples:
 {  event "AE_CL_VSCRIPT_CALLBACK" 0 "ammo_update" }
 {  event "AE_CL_VSCRIPT_CALLBACK" 38 "remoteturret_fadeout" }
 
-AE_SV_VSCRIPT_CALLBACK // special Animation Event, calls a SERVER-ONLY function registered in VScripts, the function name is the 3rd parameter - SERVER ONLY, MEANING AUTHORITATIVE GAME LOGIC! However, this includes some cosmetic features such as force toggling a bodygroup on models,  including player models or partially cosmetic features such as playing server-wide sounds (everyone can hear them)
+AE_SV_VSCRIPT_CALLBACK // special Animation Event, calls a SERVER-ONLY function registered in VScripts, the function name is the 3rd parameter - SERVER ONLY, MEANING AUTHORITATIVE GAME LOGIC! However, it is also responsible for some cosmetic features such as force toggling a bodygroup on models, including player models or partially cosmetic features such as playing server-wide sounds (everyone can hear them)
 
 Examples:
 
