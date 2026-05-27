@@ -1,6 +1,6 @@
-# Writing .QCs
+## Writing .QCs
 
-# Introduction
+## Introduction
 
 The bread and butter of Source engine animations are $sequences. They allow access to advanced animation sequence configuration.
 
@@ -12,7 +12,7 @@ The .SMD format is old and limited (bone number, etc.), but plaintext and very e
 
 Some limits of SMD have been extended with modified versions of studiomdl.exe like nekomdl and tools like Blender Source Tools, while warning about the limits, allow importing rigs with more than 128 bones into Blender.
 
-# Raw animations
+## Raw animations
 
 ReSource uses the "class"-styled declaration of $sequences instead of accessing skeletal anims directly:
 
@@ -222,7 +222,7 @@ In addition to the aforementioned options for $sequences, they can also feature:
 And other options which are not used in Respawn games, but are supported by the Source engine.
 
 
-# Animation Events
+## Animation Events
 
 As described above, Animation Events are flags inside animation $sequences that communicate to the engine that a specific event is meant to take place at the respective frame. The list of possible events is very broad, from triggering Audio Events to play, to spawning Particle Effects, to creating Client-Sided Props, to sending code Signals to VScript Threads!
 
@@ -378,7 +378,7 @@ In order to end an Animation Window:
 
 ```
 
-# Blend Sequences & Animation Matrices 
+## Blend Sequences & Animation Matrices 
 
 
 The Source engine allows for the creation of Animation Matrices inside $sequences, for example, for blending animations pointing in a certain direction:
@@ -425,7 +425,7 @@ In the Animation Matrix Blend Sequence presented above, the raw animations are d
 
 The "delta" command designates the $sequence as a "delta animation" sequence, meaning it is to be played as a layer on top of other animations instead of overriding them. The word delta comes from the mathematical meaning of "delta": a difference. The delta animations are "partial animations" (they are not designed as standalone animations) added to animations to create dynamic composited sequences. They can be thought of similarly to "Blend Shapes" / "Shape Keys" in Blender, being extra layers which have controllers that affect how much those layers influence the currently playing animations and the degree to which these extra layers are added on top.
 
-# Transition Nodes
+## Transition Nodes
 
 If an animation sequence should expressly not use any transitions to other animation sequences, it is possible to skip any existing transitions with the "snap" or "$skiptransition" command. The skiptransition command must be used outside of $sequences, as indicated by its dollar sign prefix. This command adds a rule to not play any transition animations between two transition nodes and allows for smooth transitioning between different player states, like walk -> stand -> run, instead of walk -> run.
 
@@ -475,7 +475,7 @@ There is always an implicit, undeclared root node which does not have any transi
 
 "fadein" and "fadeout" are blending options for transitioning between animations. By default, they are set to 0.2 s = 200 ms.
 
-# Activities and Activity Modifiers
+## Activities and Activity Modifiers
 
 As aforementioned, activities represent an alias for groups of associated animation sequences.
 The weight of a $sequence associated with an Animation Activity represents the likelihood that the specific $sequence will be chosen to play when a certain activity is triggered.
@@ -522,7 +522,7 @@ $sequence "ads_out_wallrun_onehanded" "ptpov_mastiff_onehanded_ads_out__44" {
 
 The list of Activities and Activity Modifiers is very long and can be found in the main animations document.
 
-# Other Animation Commands
+## Other Animation Commands
 
 "autoplay" forces the animation to play on top at all times, irrespective of whatever other animation sequences may be playing. This command is very useful for blend sequences such as wind rush layers. Respawn very often used it for this purpose.
 
