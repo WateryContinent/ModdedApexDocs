@@ -376,6 +376,27 @@ Contents of the settings file:
 	}
 }
 
+Another example:
+
+{
+	"layoutAsset": "settings_layout/settings_scriptAnimWindowArguments_CreateProp_layout.rpak",
+	"settings": {
+		"assetName": "settings/scriptAnimWindow/prop_gladcard.rpak",
+		"devDescription": "",
+		"type": "CreateProp",
+		"selectModelFrom": "HARD_CODED",
+		"modelName": "mdl/weapons/burn_card/w_burn_card.rmdl",
+		"modelScriptKey": "",
+		"attachPoint": "PROPGUN",
+		"animSequence": "",
+		"scriptCallbackKey": "add_glad_card_rui",
+		"scale": 1.000000,
+		"propBodygroups": [
+			],
+		"syncCycle": false
+	}
+}
+
 In order to end an Animation Window:
 
 {  event "AE_CL_SCRIPT_ANIM_WINDOW_END" 0 "pathfinder_antenna_hack_start w@0x6CB21C5487175_0 settings/scriptAnimWindow\sound_ptpov_pathfinder_antenna_hack_start.rpak" }
