@@ -280,8 +280,11 @@ This is so that Respawn didn't have to create a separate, identical animation se
 AE_CL_STOPSOUND // frame to stop a client-sided only sound at, followed by a 3rd parameter which is the name of the Sound Event (NOT audio clip!) 
 ```
 
+```
+AE_CL_CREATE_PROP 
+```
 
-AE_CL_CREATE_PROP // 3rd parameter is complicated and not well understood, but it seems to be an identifier such as "p@" followed by a hexadecimal GUID, followed by the prop's RMDL model, then the attachment point for it to be parented to on the RRIG the animation sequence is played on, all encased in quotation marks. The GUID is not the GUID corresponding to the prop's model in an RPAK. This animation event is responsible for communicating to the engine when, during an animation, a Client-Sided Prop is meant to spawn, which model it should use, and which attachment point it should be attached to, so that it ca follow its movements
+The 3rd parameter is complicated and not well understood, but it seems to be an identifier such as "p@" followed by a hexadecimal GUID, followed by the prop's RMDL model, then the attachment point for it to be parented to on the RRIG the animation sequence is played on, all encased in quotation marks. The GUID is not the GUID corresponding to the prop's model in an RPAK. This animation event is responsible for communicating to the engine when, during an animation, a Client-Sided Prop is meant to spawn, which model it should use, and which attachment point it should be attached to, so that it ca follow its movements
 
 ```
 Example:
