@@ -243,7 +243,6 @@ For organization purposes, the events have been grouped by the type of function 
 AE_WPN_READYTOFIRE // frame that the weapon / ability can be fired on; until this is signalled, the player cannot fire the weapon / use the ability
 
 
-
 Apex Legends has a Segmented Reload system which means that after you complete a segment of the animation (a.k.a. reach a "milestone"), the engine remembers and if you switch to doing another action, you can resume the reload from the beginning of that milestone. This also applies to weapons like the Mastiff and 30-30 Repeater which have looping individual shell / round reloading which you can cancel to shoot, for example, however their mechanisms are different from those of automatic weapons.
 
 AE_WPN_RELOAD_MILESTONE_1 // frame that the first segmented reload milestone is reached on (might be magazine insert for automatic weapons)
