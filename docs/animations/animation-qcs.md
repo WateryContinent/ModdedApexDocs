@@ -2,6 +2,8 @@
 
 # Introduction
 
+In order to compile animations for use inside a game engine, it is necessary to compile them into binary files (Valve's MDL or Respawn's RSEQ). The usual procedure is to compile them into V49 MDLs (Portal 2) then convert them into RSEQs using SomeoneAteMyLastSliceOfPizza's R5-AnimConv tool. MDLs are compiled by Valve's proprietary model compiler, studiomdl.exe and require a .QC file (the format's name comes from QuakeC for historical reasons), which represents a manifest / template for studiomdl.exe and .SMD or .DMX files which contain the actual mesh / rig / animation data.
+
 The bread and butter of Source engine animations are $sequences. They allow access to advanced animation sequence configuration.
 
 ALL animations used in $sequences MUST be declared BEFORE they are used in $sequences, with $animation
