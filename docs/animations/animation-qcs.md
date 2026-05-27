@@ -265,7 +265,7 @@ AE_CL_PLAYSOUND // frame to play a client-sided only sound at, followed by a 3rd
 AE_CL_PLAYSOUND_FOR_TYPE 
 ```
 
-3rd argument is the type of sound assigned to a legend in their own settings file; this is useful and necessary for making generic animations because each different character has their own voicelines corresponding to specific event types, such as throwing a grenade. Crypto and Wraith, for example, won't have the same Audio Event with the same name, for voicelines corresponding to the same actions. Therefore, it is up to the game engine to resolve which character the animation sequence is being executed on and decide which Audio Event should Play.
+For AE_CL_PLAYSOUND_FOR_TYPE, the 3rd argument is the type of sound assigned to a legend in their own settings file; this is useful and necessary for making generic animations because each different character has their own voicelines corresponding to specific event types, such as throwing a grenade. Crypto and Wraith, for example, won't have the same Audio Event with the same name, for voicelines corresponding to the same actions. Therefore, it is up to the game engine to resolve which character the animation sequence is being executed on and decide which Audio Event should Play.
 
 ```
 Example: 
