@@ -116,6 +116,14 @@ $poseparameter min and max values are defined arbitrarily (no min or max value l
 
 Additionally, already existing pose parameters for a rig can be inspected by opening the RRIG with an RMDL Binary Template.
 
+Pose parameters can also be configured so that the animation loops back on itself (restarts from the beginning) with "loop", such as for vehicle wheels rotating, for example:
+
+```
+$poseparameter wheels -180 180 loop 360
+```
+
+It is also possible to have $poseparameter values wrap around using "wrap". Values less than min wrap around to max, etc.
+
 # Animation Sequences 
 
 This section will feature an overview of animation sequences.
