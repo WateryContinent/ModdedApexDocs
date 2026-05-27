@@ -1,21 +1,9 @@
 {
   "docs": [
     {
-      "title": "010 Resource Templates",
-      "path": "docs/010-resource-templates.md",
-      "group": "General",
-      "assets": []
-    },
-    {
       "title": "3D Positions Physics Ballistics",
       "path": "docs/3d-positions-physics-ballistics/3d-positions-physics-ballistics.md",
       "group": "3D Positions Physics Ballistics",
-      "assets": []
-    },
-    {
-      "title": "Abilities",
-      "path": "docs/abilities.md",
-      "group": "General",
       "assets": []
     },
     {
@@ -23,6 +11,44 @@
       "path": "docs/ai-npcs/ai-npc.md",
       "group": "Ai Npcs",
       "assets": []
+    },
+    {
+      "title": "Writing .QCs",
+      "path": "docs/animations/animation-qcs.md",
+      "group": "Animations",
+      "assets": [
+        {
+          "name": "ApexCustomHumanIKRig.blend",
+          "path": "docs/animations/assets/ApexCustomHumanIKRig.blend",
+          "size": "254.7 KB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ExampleRPAKForRePak.zip",
+          "path": "docs/animations/assets/ExampleRPAKForRePak.zip",
+          "size": "18.5 KB",
+          "folder": "animations/assets"
+        }
+      ]
+    },
+    {
+      "title": "Animations, Animation Sequences and Rigs",
+      "path": "docs/animations/animations.md",
+      "group": "Animations",
+      "assets": [
+        {
+          "name": "ApexCustomHumanIKRig.blend",
+          "path": "docs/animations/assets/ApexCustomHumanIKRig.blend",
+          "size": "254.7 KB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ExampleRPAKForRePak.zip",
+          "path": "docs/animations/assets/ExampleRPAKForRePak.zip",
+          "size": "18.5 KB",
+          "folder": "animations/assets"
+        }
+      ]
     },
     {
       "title": "Creating Custom Rigs and Animations for Modded Apex",
@@ -92,21 +118,9 @@
       "assets": []
     },
     {
-      "title": "Collision Hulls",
-      "path": "docs/collision-hulls.md",
-      "group": "General",
-      "assets": []
-    },
-    {
       "title": "Color Correction Materials",
       "path": "docs/color-correction/colorcorrection.md",
       "group": "Color Correction",
-      "assets": []
-    },
-    {
-      "title": "Console Commands",
-      "path": "docs/console-commands.md",
-      "group": "General",
       "assets": []
     },
     {
@@ -116,21 +130,9 @@
       "assets": []
     },
     {
-      "title": "Damagedefs And Damage Flags",
-      "path": "docs/damagedefs-and-damage-flags.md",
-      "group": "General",
-      "assets": []
-    },
-    {
       "title": "Datatables",
       "path": "docs/datatables/datatables.md",
       "group": "Datatables",
-      "assets": []
-    },
-    {
-      "title": "Dev Menu",
-      "path": "docs/dev-menu.md",
-      "group": "General",
       "assets": []
     },
     {
@@ -158,51 +160,15 @@
       "assets": []
     },
     {
-      "title": "File Formats",
-      "path": "docs/file-formats.md",
-      "group": "General",
-      "assets": []
-    },
-    {
-      "title": "In‑game names → file identifiers",
-      "path": "docs/file-name-reference.md",
-      "group": "General",
-      "assets": []
-    },
-    {
-      "title": "Getting Started",
-      "path": "docs/getting-started.md",
-      "group": "General",
-      "assets": []
-    },
-    {
       "title": "Highlights",
       "path": "docs/highlights-outlines/highlights.md",
       "group": "Highlights Outlines",
       "assets": []
     },
     {
-      "title": "Image Editor",
-      "path": "docs/image-editor.md",
-      "group": "General",
-      "assets": []
-    },
-    {
       "title": "Impact Tables",
       "path": "docs/impact-tables/impact-tables.md",
       "group": "Impact Tables",
-      "assets": []
-    },
-    {
-      "title": "or",
-      "path": "docs/install-linux.md",
-      "group": "General",
-      "assets": []
-    },
-    {
-      "title": "Localization",
-      "path": "docs/localization.md",
-      "group": "General",
       "assets": []
     },
     {
@@ -332,18 +298,6 @@
       "assets": []
     },
     {
-      "title": "Raycasting",
-      "path": "docs/raycasting.md",
-      "group": "General",
-      "assets": []
-    },
-    {
-      "title": "RCON",
-      "path": "docs/rcon.md",
-      "group": "General",
-      "assets": []
-    },
-    {
       "title": "Realms",
       "path": "docs/realms/realms.md",
       "group": "Realms",
@@ -386,18 +340,6 @@
       "assets": []
     },
     {
-      "title": "Scripts Quickstart",
-      "path": "docs/scripts-quickstart.md",
-      "group": "General",
-      "assets": []
-    },
-    {
-      "title": "Squirrel_re Script Naming Conventions",
-      "path": "docs/squirrel-script-naming-conventions.md",
-      "group": "General",
-      "assets": []
-    },
-    {
       "title": "Threads Signals",
       "path": "docs/threads-coroutines-signals-flags/threads-signals.md",
       "group": "Threads Coroutines Signals Flags",
@@ -410,15 +352,117 @@
       "assets": []
     },
     {
+      "title": "010 Resource Templates",
+      "path": "docs/uncategorized/010-resource-templates.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Abilities",
+      "path": "docs/uncategorized/abilities.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Collision Hulls",
+      "path": "docs/uncategorized/collision-hulls.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Console Commands",
+      "path": "docs/uncategorized/console-commands.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Damagedefs And Damage Flags",
+      "path": "docs/uncategorized/damagedefs-and-damage-flags.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Dev Menu",
+      "path": "docs/uncategorized/dev-menu.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "File Formats",
+      "path": "docs/uncategorized/file-formats.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "In‑game names → file identifiers",
+      "path": "docs/uncategorized/file-name-reference.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Getting Started",
+      "path": "docs/uncategorized/getting-started.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Image Editor",
+      "path": "docs/uncategorized/image-editor.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "or",
+      "path": "docs/uncategorized/install-linux.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Localization",
+      "path": "docs/uncategorized/localization.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Raycasting",
+      "path": "docs/uncategorized/raycasting.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "RCON",
+      "path": "docs/uncategorized/rcon.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Scripts Quickstart",
+      "path": "docs/uncategorized/scripts-quickstart.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Squirrel_re Script Naming Conventions",
+      "path": "docs/uncategorized/squirrel-script-naming-conventions.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
       "title": "Variadic Functions",
-      "path": "docs/variadic-functions.md",
-      "group": "General",
+      "path": "docs/uncategorized/variadic-functions.md",
+      "group": "Uncategorized",
       "assets": []
     },
     {
       "title": "Vm Splits Sandboxing",
-      "path": "docs/vm-splits-sandboxing.md",
-      "group": "General",
+      "path": "docs/uncategorized/vm-splits-sandboxing.md",
+      "group": "Uncategorized",
+      "assets": []
+    },
+    {
+      "title": "Welcome",
+      "path": "docs/uncategorized/welcome.md",
+      "group": "Uncategorized",
       "assets": []
     },
     {
@@ -431,12 +475,6 @@
       "title": "Weapons Quickstart",
       "path": "docs/weapons/weapons-quickstart.md",
       "group": "Weapons",
-      "assets": []
-    },
-    {
-      "title": "Welcome",
-      "path": "docs/welcome.md",
-      "group": "General",
       "assets": []
     }
   ]
