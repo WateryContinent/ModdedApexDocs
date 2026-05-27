@@ -12,6 +12,8 @@ The .SMD format is old and limited (bone number, etc.), but plaintext and very e
 
 Some limits of SMD have been extended with modified versions of studiomdl.exe like nekomdl and tools like Blender Source Tools, while warning about the limits, allow importing rigs with more than 128 bones into Blender.
 
+In order to extract .QC, .SMD or .DMX files it is necessary to use RSX (ReSource eXtractor by r-exx) on SMD / DMX mode.
+
 # Raw animations
 
 ReSource uses the "class"-styled declaration of $sequences instead of accessing skeletal anims directly:
