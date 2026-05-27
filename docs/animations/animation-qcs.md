@@ -351,7 +351,9 @@ In order to end an Animation Window:
 The Source engine allows for the creation of Animation Matrices inside $sequences, for example, for blending animations pointing in a certain direction:
 
 NW-----N-----NE
+
 W------C------E
+
 SW-----S-----SE
 
 A an Animation Matrix, just like a mathematical matrix, has columns and rows. The rows are determined automatically, while the number of columns is controlled by the command "blendwidth".
