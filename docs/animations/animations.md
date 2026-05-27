@@ -30,9 +30,9 @@ A rig / skeleton / armature is a collection of "bones" mapped onto vertex groups
 
 Animation has two prerequisite steps: skinning and rigging
 
-Skinning, in this context, does not refer to texturing or retexturing a model, but to mapping bones to a model's vertices / vertex groups in order to create a skeleton.
+Skinning, in this context, does not refer to texturing or retexturing a model, but to mapping bones to a model's vertices / vertex groups in order to allow the bones to manipulate the mesh (weight painting)
 
-Rigging encompasses weight painting and the manipulation of bones with bone controllers, inverse kinematics, etc.
+Rigging encompasses the creation of bone controllers, adding support for inverse kinematics, creating FK-IK switches, etc.
 
 The armature of a model can be seen by exporting the RMDL with RSX as SMDs (Studiomodel Data Files) and then importing them into [Blender](https://www.blender.org/), using [Blender Source Tools](https://developer.valvesoftware.com/wiki/Blender_Source_Tools) on .qc / .smd import mode.
 
