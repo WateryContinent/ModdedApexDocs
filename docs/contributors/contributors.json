@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Amos",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXF7UhNdmkPrpYewVxA4201blm5nNEh7TyIazc",
+    "description": "Big Man, Founder"
+  },
+  {
+    "name": "IcePixel",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXdlOPb4iNPAGK3tHBi9rMbaTvq8oYVfRWxE1y",
+    "description": "Former Developer"
+  },
+  {
+    "name": "Rexx",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXoRevpju35DFsyhL6erNRJQlziZu1HXvOAYEf",
+    "description": "Master Server, Developer"
+  },
+  {
+    "name": "Sal",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXOPEarJFwE3tZWKmAp51Ic8SikVbjg7MuHvBQ",
+    "description": "Master Server, Developer"
+  },
+  {
+    "name": "LorryLeKral",
+    "avatar": "https://github.com/r5valkyrie/docs/blob/main/contributors/assets/LorryLeKral.png?raw=true",
+    "description": "Scripting, Maps, Models"
+  },
+  {
+    "name": "Zee",
+    "avatar": "https://github.com/r5valkyrie/docs/blob/main/contributors/assets/zee_x64.gif?raw=true",
+    "description": "Website, Scripting"
+  },
+  {
+    "name": "CafeFPS",
+    "avatar": "https://github.com/r5valkyrie/docs/blob/main/contributors/assets/CafeFPS.png?raw=true",
+    "description": "Scripting, Flowstate"
+  },
+  {
+    "name": "mkos",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXXFesL2CaRZMyBjm7FHYGbpuQV8NofAD9hTt0",
+    "description": "Scripting, Flowstate"
+  },
+  {
+    "name": "Mostly Fireproof",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXnUUkraIwGeBvzjAOrM3RcEFiZYJ5pQTUHglV",
+    "description": "Scripting"
+  },
+  {
+    "name": "JustANormalUser",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXkqtg24ZHxWSK9QoZyuTqOJF3seXE4n1RPald",
+    "description": "Scripting"
+  },
+  {
+    "name": "Julefox",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXNBboxChLKsPXFiUvfa3VE08HYDzep9TWk1xy",
+    "description": "Scripting"
+  },
+  {
+    "name": "ReGlitched",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVX5nYFoyLe9jwZDvAcN7LKVoQGWaTMFlpgI3Su",
+    "description": "Scripting"
+  },
+  {
+    "name": "O Robotic",
+    "avatar": "https://utfs.io/f/YBTHYqEAQmVXRhegMSkgwSPdWHeGOVYrFxLlCpIv0fEcz2j7",
+    "description": "SDK"
+  },
+  {
+    "name": "WateryContinent02",
+    "avatar": "https://raw.githubusercontent.com/r5valkyrie/docs/refs/heads/main/contributors/assets/watery.gif",
+    "description": "Models and Assets"
+  },
+  {
+    "name": "dilirity",
+    "avatar": "https://raw.githubusercontent.com/r5valkyrie/docs/refs/heads/main/contributors/assets/dilirity.png",
+    "description": "Bots and Scripting"
+  }
+]

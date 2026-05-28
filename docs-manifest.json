@@ -124,6 +124,12 @@
       "assets": []
     },
     {
+      "title": "Contributors",
+      "path": "docs/contributors/contributors.md",
+      "group": "Contributors",
+      "assets": []
+    },
+    {
       "title": "Crosshair",
       "path": "docs/crosshair/crosshair.md",
       "group": "Crosshair",
