@@ -9,6 +9,7 @@ const state = {
 const elements = {
   navToggle: document.querySelector("#navToggle"),
   sidebar: document.querySelector("#sidebar"),
+  contributorsPin: document.querySelector("#contributorsPin"),
   docSearch: document.querySelector("#docSearch"),
   docNav: document.querySelector("#docNav"),
   libraryView: document.querySelector("#libraryView"),
@@ -238,6 +239,7 @@ function groupedDocs(docs) {
 function renderNav() {
   const docs = filteredDocs();
   const groups = groupedDocs(docs);
+  elements.contributorsPin.classList.toggle("active", state.activePath === "docs/contributors/contributors.md");
 
   elements.docNav.innerHTML = Object.entries(groups)
     .map(
@@ -403,6 +405,55 @@ function renderAssets(doc) {
   `;
 }
 
+async function fetchJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) {
+    throw new Error(`Could not load ${path}`);
+  }
+  return response.json();
+}
+
+function contributorCard(person, variant = "") {
+  const detail = person.description || "";
+
+  return `
+    <article class="contributor-card ${variant}">
+      <img src="${escapeHtml(person.avatar)}" alt="${escapeHtml(person.name)} avatar" loading="lazy" />
+      <div>
+        <h3>${escapeHtml(person.name)}</h3>
+        ${detail ? `<p>${escapeHtml(detail)}</p>` : ""}
+        <span>Contributor</span>
+      </div>
+    </article>
+  `;
+}
+
+function insertContributorSection(title, people, variant = "") {
+  const heading = [...elements.markdownBody.querySelectorAll("h2")].find((item) => item.textContent.trim() === title);
+  const section = document.createElement("section");
+  section.className = "contributors-section";
+  section.innerHTML = `
+    <div class="contributors-grid">
+      ${people.map((person) => contributorCard(person, variant)).join("")}
+    </div>
+  `;
+
+  if (heading) {
+    heading.insertAdjacentElement("afterend", section);
+  } else {
+    elements.markdownBody.append(section);
+  }
+}
+
+async function renderContributors(doc) {
+  if (doc.path !== "docs/contributors/contributors.md") return;
+
+  const basePath = doc.path.replace(/\/[^/]+$/, "");
+  const docsContributors = await fetchJson(`${basePath}/contributors.json`);
+
+  insertContributorSection("Project Contributors", docsContributors);
+}
+
 async function openDoc(path) {
   const doc = state.docs.find((item) => item.path === path) || state.docs[0];
   if (!doc) return;
@@ -420,6 +471,7 @@ async function openDoc(path) {
   elements.docGroup.textContent = doc.group;
   elements.docPath.textContent = doc.path;
   elements.markdownBody.innerHTML = parseMarkdown(markdown, doc.path);
+  await renderContributors(doc);
   renderAssets(doc);
   buildToc();
   renderNav();
