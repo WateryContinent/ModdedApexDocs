@@ -10,7 +10,7 @@ ALL animations used in $sequences MUST be declared BEFORE they are used in $sequ
 
 Animation data can be stored and imported as either .SMDs (Studiomodel Data, where Studiomdl is Valve's proprietary model compiler, models which can have mesh vertex data or be animation-only) or .DMX (Data Model eXchange, a BINARY format).
 
-The .SMD format is old and limited (bone number, etc.), but plaintext and very easily human-readable, while .DMX has extended limits and more advanced features but is non-human-readable, due to it being binary.
+The .SMD format is old and limited (bone number, etc.), but plaintext and very easily human-readable, while .DMX has extended limits and more advanced features but is non-human-readable, due to it being binary. In consequence, Respawn use DMX in their asset bakery, not just for models, armatures and animations, but also for particle systems (EFCT is a modified version of DMX).
 
 Some limits of SMD have been extended with modified versions of studiomdl.exe like nekomdl and tools like Blender Source Tools, while warning about the limits, allow importing rigs with more than 128 bones into Blender.
 
