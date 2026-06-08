@@ -34,7 +34,7 @@ A bone is a special object used in 3D animation with the purpose of deforming (m
 
 Animation has two prerequisite steps: skinning and rigging
 
-Skinning, in this context, does not refer to texturing or retexturing a model, but to mapping bones to a model's vertices (almost always done collectively in the form of vertex groups) in order to allow the bones to manipulate the mesh (weight painting)
+Skinning, in this context, does not refer to texturing or retexturing a model, but to mapping bones to a model's vertices (almost always done collectively in the form of creating vertex groups) in order to allow the bones to manipulate the mesh (weight painting)
 
 Rigging encompasses the creation of bone controllers, adding support for inverse kinematics, creating FK-IK switches, etc.
 
