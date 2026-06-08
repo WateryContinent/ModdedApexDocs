@@ -119,7 +119,406 @@ Activities also have associated weights which can be arbitrarily defined (1, 100
 
 Animation Activity Modifiers act similarly to code flags, signalling that specific animations are supposed to play for an activity, depending on in-game contexts (such as Legend-specific animations, like Rampart's LMG animations). Essentially, they "modify activities" (offering additional context to the engine), as the name implies.
 
-Activities are listed in (and in the future will be registered in) platform/script/activity_types.txt and in the R5SDK in shared_activities.h / ai_activity.h (traditionally in Source Engine games):
+Activities are listed in (and in the future will be registered in) platform/script/activity_types.txt and in the R5SDK in shared_activities.h / ai_activity.h (traditionally in Source Engine games). A list of them is present at the bottom of the article, because it is VERY long.
+
+R5V is developing a solution for registering custom activities and activity modifiers in the engine.  
+
+Commands exist for dumping all activities and activity modifiers to the console:  
+
+activity_dump  
+
+activitymodifier_dump  
+
+
+
+
+## 6. Animation Activity Methods
+```
+weapon.StartCustomActivity(string activityName, 0)
+weapon.StopCustomActivity()
+```
+
+## 7. Animation Events
+
+Animation Events represent flags inside of the animations that convey that an event has happened to the engine. They can be included inside $sequence commands inside model or animation-only .qc files, in which case they are named in ALL-CAPS, use underscores, use the "AE_" prefix, the "event" keyword, mention the frame number that the Animation Event is signalled at in the animation, have one context dependent parameter, and are contained between two curly brackets { }
+
+This is the Animation Event structure inside $sequence containers, in .qc files:
+```
+$sequence "sequencename" {
+// sequence commands    
+{ event AE_ANIMATION_EVENT framenumber context_dependent_param }
+// sequence commands
+}
+
+Examples:
+
+{ event AE_WPN_READYTOFIRE 10 "" }
+{ event AE_CL_PLAYSOUND 0 "weapon_rampage_equip" }
+
+```
+
+List of Animation Events used in R5V / Apex Legends:  
+
+### Weapon Animation Events
+```
+AE_WPN_READYTOFIRE // 3rd parameter ""
+AE_WPN_RUMBLE // controller haptic feedback, 3rd parameter string rumbleParameters
+AE_WPN_RELOAD_MILESTONE_1 // segmented reload milestone, 3rd parameter ""
+AE_WPN_RELOAD_MILESTONE_2 // segmented reload milestone, 3rd parameter ""
+AE_WPN_FILLAMMO // ammo refill callback, 3rd parameter ""
+```
+### Audio Animation Events
+```
+CL = Client-side
+
+AE_CL_PLAYSOUND // 3rd parameter string audioEventName, i.e.: "weapon_rampage_reload_maginsert"
+AE_CL_STOPSOUND // 3rd parameter string audioEventName
+```
+
+### Bodygroup Animation Events
+```
+AE_ENABLE_BODYGROUP // 3rd parameter string bodygroupName, i.e.: "thermite"
+AE_DISABLE_BODYGROUP // 3rd parameter string bodygroupName, i.e.: "thermite"
+AE_WPN_CLIPBODYGROUP_SHOW // 3rd parameter ""
+AE_WPN_CLIPBODYGROUP_HIDE // 3rd parameter ""
+```
+### Script Callback Animation Events
+```
+CL = Client-side
+SV = Server-side
+
+AE_CL_VSCRIPT_CALLBACK  // 3rd parameter script callback name
+
+AE_SV_VSCRIPT_CALLBACK // 3rd parameter script callback name
+
+{ event AE_SV_VSCRIPT_CALLBACK 120 "dragon_lmg_energized" }
+{ event AE_CL_VSCRIPT_CALLBACK 0 "muzzle_flash" }
+{ event AE_CL_VSCRIPT_CALLBACK 0 "shell_eject" }
+{ event AE_CL_VSCRIPT_CALLBACK 0 "ammo_update" }
+```
+
+### Player Movement State Animation Events
+```
+{ event AE_GROUND_CONTACT_L 0 "LandSweetener_High" }
+
+```
+
+### Particle System Animation Events
+```
+{ event AE_CL_CREATE_PARTICLE_EFFECT 9 "P_wpn_nem_reload_cyl_elec_01 follow_attachment fx_mag_inneredge_01" } 
+{ event AE_CL_ADD_PARTICLE_EFFECT_CP 9 "P_wpn_nem_reload_cyl_elec_01 1 follow_attachment fx_frame_edge_01" } // I don't know the difference for sure, don't ask me
+{ event AE_CL_STOP_PARTICLE_EFFECT 53 "P_wpn_nem_reload_cyl_elec_01 follow_attachment fx_mag_inneredge_01" }
+
+
+// 3rd parameter contains:
+a) The first person particle effect
+b) The particle effect behavior
+c) The particle effect attachment point on the model
+
+```
+
+## 8. Script-based Animation Events 
+
+There is an alternative to .qc Animation Events, which is the use of script-based Animation Events.
+```
+Examples:
+
+AddGlobalAnimEvent("cloak_on", AnimEvent_Cloak_On)
+
+AddAnimEvent( entity ent, string animEventName, funcref() callbackFunction )
+AddAnimEvent( pistol, "muzzle_flash", muzzleFlashCallback )
+AddAnimEvent( npc, "dropship_warpout, WarpoutEffect )
+AddAnimEvent( firstPersonProxy, "mantle_smallmantle", OnSmallMantle )
+AddAnimEvent( firstpersonProxy, "mantle_mediummantle", OnMediumMantle )
+AddAnimEvent( firstPersonProxy, "mantle_lowmantle", OnLowMantle )
+DeleteAnimEvent( entity ent, string eventName )
+
+
+AddGlobalAnimEventTokenize( string animEventName, funcref() callbackFunction )
+AddAnimEventTokenized()
+DeleteAnimEventTokenized()
+
+
+AddAnimAlias( "atlas", "ptpov_rodeo_move_front_lower_entrance", "ptpov_rodeo_move_atlas_back_mid_entrance") // for reusing animations on multiple models
+
+
+GetOptionalAnimEventVar()
+
+
+MakeAnimEventData()
+AnimEventData animEventData = GetAnimEventDataForEvent( entity ent, string eventName )
+
+
+AnimEvent_attach_pistol_common( ent, STEAL_PISTOL_MODEL, "w_p2011_mp_execution_gun_steal", StealP2011MuzzleFlash)
+
+
+GlobalAnimEvent_EnableWeapon( entity npc )
+GlobalAnimEvent_DisableWeapon( entity npc )
+GlobalAnimEvent_BT_Pod_Left( entity npc )
+GlobalAnimEvent_BT_Pod_Right( entity npc )
+GlobalAnimEvent_ClearParent( entity npc )
+GlobalAnimEvent_Hide( entity npc )
+GlobalAnimEvent_Show( entity npc )
+GlobalAnimEvent_ShowFPSProxy( entity player )
+GlobalAnimEvent_ClearAnimViewEntity( entity player )
+GlobalAnimEvent_SetVelocity( entity npc )
+GlobalAnimEvent_StanceKneel( entity npc )
+GlobalAnimEvent_StanceKneeling( entity npc )
+GlobalAnimEvent_StanceStanding( entity npc )
+GlobalAnimEvent_EnablePlanting( entity npc )
+GlobalAnimEvent_Kill( entity npc )
+GlobalAnimEvent_Gib( entity npc )
+GlobalAnimEvent_TitanGib( entity npc )
+GlobalAnimEvent_GiveAmmo( entity npc )
+GlobalAnimEvent_BodyFallHuman( entity npc )
+GlobalAnimEvent_BodyFallHuman_Small( entity npc )
+GlobalAnimEvent_headplant( entity npc )
+GlobalAnimEvent_footstep_human_small_L( entity npc )
+GlobalAnimEvent_footstep_human_small_R( entity npc )
+GlobalAnimEvent_Jump_Pad_Drop( entity npc )
+GlobalAnimEvent_BodyFallProwler( entity npc )
+GlobalAnimEvent_PutProwlerInSafeSpot( entity npc )
+GlobalAnimEvent_SetBodyGroup( entity model, array<string> tokens)
+GlobalAnimEvent_SetWeaponSkin00( entity weapon )
+GlobalAnimEvent_SetWeaponSkin01( entity weapon )
+GlobalAnimEvent_attach_knife( entity npc )
+GlobalAnimEvent_detach_knife( entity npc )
+GlobalAnimEvent_MarkForDeath( entity npc )
+GlobalAnimEvent_headstab_death( entity npc )
+GlobalAnimEvent_attach_p2011( entity npc )
+```
+
+## 9. Animation Event Functions
+
+```
+CodeCallback_OnServerAnimEvent( entity ent, string eventName )
+CodeCallback_HandleClientAnimEvent()
+HasAnimEvent( entity ent, string eventName )
+HasAnimEventTokenized( entity ent, string eventName )
+RunAnimEventCallbacks( entity ent, string eventName )
+PlayDialogueForAnimEvent( entity ent, string token)
+```
+
+## 10. Global Animation Event Structures
+```
+global struct AnimEventData
+global struct TokenizedAnimEventData
+```
+
+## 11. Animation Event Entity Keyvalues
+```
+entity.e.tokenizedAnimEventDataForEntity[ eventName ] <- animEventData // animEventData is an instance of the AnimEventData structure, this is a newslotting command, which creates a new slot in the Anim Event Data Table
+
+delete entity.e.tokenizedAnimEventDataForEntity[ eventName ] // this is a slot deletion command
+
+entity.e.animEventDataForEntity[ eventName ]
+```
+
+## 12. Script Callback Functions For Animation Events Inside .txt Config Files
+```
+"OnClientAnimEvent"                 "OnClientAnimEvent_weapon_Car" // example callback from mp_weapon_car.txt
+"OnWeaponTossReleaseAnimEvent"      "Grenade_OnWeaponTossReleaseAnimEvent" // example callback
+"OnWeaponPrimaryAttackAnimEvent"
+```
+
+## 13. Animation Methods and Functions
+
+It is important to keep in mind that animations are mostly a CLIENT-SIDED cosmetic feature; if you are calling an animation-related function from the SERVER VM and it doesn't work, it is almost certainly a CLIENT VM exclusive function.  
+
+### Animation Callback Functions
+
+All of these functions are global and shared between the SERVER and CLIENT VM's.
+
+```
+ClientCodeCallback_AnimWindowStart( ScriptAnimWindow window )
+ClientCodeCallback_AnimWindowTransition( ScriptAnimWindow window )
+ClientCodeCallback_AnimWindowStop( ScriptAnimWindow window )
+ClientCodeCallback_AnimWindowPrecache( asset windowSettingsAsset )
+
+CodeCallback_AnimationDone( entity ent )
+CodeCallback_AnimationInterrupted( entity ent )
+```
+
+### Other Animation Functions
+
+```
+PlayAnimTeleport( entity, animation_name, reference = null, optionalTag = null, initialTime = -1.0, smooth = false )
+
+PlayFPSAnimTeleport()
+
+PlayFPSAnimTeleportShowProxy()
+
+HasAnim( entity ent, string animationName ) // returns a bool // cl_anim.gnut
+
+string animation = GetAnim( entity ent, string animationName ) // cl_anim.gnut
+
+SetAnim( entity ent, string name, string animation) // cl_anim.gnut
+
+ModelData_SetAnim( modelData, string activityName )
+ModelData_SetAnim( modelData, "ACT_MP_MENU_LOBBY_CENTER_IDLE" )
+ModelData_SetAnim( modelData, "ACT_MP_MENU_LOBBY_SELECT_IDLE" )
+
+PlayAnim( entity, animation_name, optionalparms)
+
+PlayAnimWithTimeout()
+```
+
+### Animation Entity Methods
+
+```
+int activity = weapon.GetWeaponActivity()
+
+entity.Anim_Play("PathToRSEQ") or entity.AnimPlay("animation_name)
+
+entity.AnimStop() (stops all animation sequences)
+
+entity.Anim_SetInitialTime()
+
+entity.Anim_EnableUseAnimatedRefAttachmentInsteadOfRootMotion()
+
+entity.GetSequenceDuration( victoryAnim )
+
+string victoryAnim = "ACT_MP_MENU_LOBBY_SELECT_IDLE"
+
+entity.Anim_SetPlaybackRate( float playbackRate )
+
+entity.Anim_PlayOnly("animation_name")
+
+entity.Anim_IsActive()
+
+entity.Anim_ScriptedPlay()
+
+entity.Anim_EnablePlanting()
+
+entity.Anim_SetPaused( bool )
+
+entity.Anim_ScriptedPlayActivityByName("ACT_STUNNED", true, 0.1)
+
+entity.Anim_PlayAttackGesture() // does this work??
+
+entity.Anim_HasActivity("ACT_FLINCH_GRAPPLE")
+
+activity commands
+
+entity.Anim_ScriptedPlayActivityByName("ACT_FALL", false, 0.2)
+
+entity.Anim_PlayGesture("ACT_SCRIPT_CUSTOM_ATTACK2", 0.2, 0.2, -1.0) // does this work??
+
+entity_Anim_PlayWithRefPoint( animation, origin, angles, blendTime ) // requires that the entity be parented to the ref point ??
+```
+
+
+## 14. How Animations Work With Multiple Entities
+
+![Alt text](https://raw.githubusercontent.com/r5valkyrie/docs/refs/heads/main/docs/animationconcepts.png)
+
+For first person animations:
+
+Firstly, the same rig / skeleton is applied to the weapon viewmodel and the first person arms model. Where associated vertex groups are found in the model's 3D mesh (collection of triangles / polygons), the bone names must be identical to the vertex group names in order to control that part of the model. The models can't and don't need to have the same vertex groups (a first person arms model won't have a weapon model, for example) and this, by design, won't result in errors. The vertex groups that do not exist on one model are simply skipped and not animated. Different rigs are NOT compatible and CANNOT be used simultaneously.  
+
+Vertex groups and attachment points can be seen either in the model's .qc / .SMD's (usually multiple .SMDs because multiple LoD's / Levels of Detail depending on distance, the farther away from the camera, the less detailed, the lower the poly count, and vice-versa for close distances) or by opening the .MDL / .RMDL with the appropriate Binary Template, inside a hexadecimal editor like 010 Editor. The same goes for bones, joints, and pose parameters, with .RRIG files.  
+
+Secondly, the same animation is played on the identical rig applied to both models, synchronizing them.  
+
+Third person animations work analogously, with worldmodels instead of viewmodels.  
+
+
+## 15. Animation .QC Commands
+
+It is crucial to know what .QC Commands there are in order to work with animations.  
+
+An exhausitve list of QC Commands can be found on the Valve Developer Wiki [here](https://developer.valvesoftware.com/wiki/Category:QC_commands) and [here](https://developer.valvesoftware.com/wiki/QC_Commands).  
+
+However, the most commonly used animation-related .QC Commands in R5V / Apex Legends are (optional parameters are placed in between square brackets; parameters in between round brackets are MANDATORY):  
+
+
+$animation (name) (file) [optional params]  
+Defines an animation alongside with an alias to be used in the .QC file. The framerate can be included as an optional parameter, otherwise it is assumed to be 30 FPS.  
+Animations MUST be defined prior to being used in $sequence containers, in the $sequence mode that is used in R5V / Apex Legends (the second mode)!  
+
+$poseparameter (name) (minBoundary) (maxBoundary) ["loop" (number)] ["wrap"]  
+Used to define a pose parameter; boundaries are explicitly mentioned and arbitray, i.e.: 0 1 (blending between 2 stages), -180 180, etc.  
+Loops are used for animations that loop back in on themselves, such as wheels or propellers turning 360 degrees and looping back in on their start position.  
+Used to achieve smooth interpolation between different frames / states for bones on a model.  
+
+A comprehensive tutorial on PoseParameters can be seen here on YouTube, courtesy of Mr Funreal: https://youtu.be/1fMJHD2-n24  
+
+$blend  
+Create smooth interpolation between different frames for bones on a model, generally used together with a pose parameter.  
+Example: blend POSEPARAM_3 0 1 // This interpolates between the boundary frames, mapped between the values 0 and 1, where 0 is the first frame and 1 is the last frame. Hence, 0.5 would be the frame located halfway in the animation.  
+Used to achieve smooth interpolation between different frames / states for bones on a model.  
+
+$sequence   
+Defines an animation sequence, which contains multiple animations and can contain many additional parameters, such as blending parameters, layered animations, animation activities, animation events, etc.  
+Has two modes:  
+
+```
+Mode 1:
+$sequence (name) (skeletal animation SMD / DMX) (simple options) {
+    (advanced options)
+    (events)
+    (simple options)
+
+    // Note: the order must be respected
+}
+
+Mode 2:
+$sequence (name) (simple options) {
+    (animation name(s), aliases MUST be defined earlier in the .QC)
+    (advanced options)
+    (events)
+    (simple options)
+
+    // Note: the order must be respected
+}
+```
+
+This latter $sequence mode is the one used in R5V / Apex Legends.  
+
+An article detailing the many aspects of the $sequence command can be found on the Valve Developer Wiki: https://developer.valvesoftware.com/wiki/$sequence  
+
+Commonly used sequence commands (non-exhaustive list, for an exhaustive list, consult the Valve Developer Wiki Article):  
+
+delta  
+Communicates to the engine that the $animations referenced in the current sequence have been subtracted. The $sequence will play on top of the currently playing $sequences and NOT override them.  
+
+subtract (string animation) (int frameNumber)  
+"This [command] subtracts the specified frame of the specified animation from all the frames of the current animation and creates an animation that is the differences between the two, effectively converting the animation to just be the changes from a reference frame of another animation." (from the Valve Developer Wiki).  
+
+addlayer (string otherSequenceName)  
+Adds a layered animation sequence on top of a core animation sequence.  
+Usually used to layer delta animations on top of the core animation sequence.  
+The animation sequences begin and end together. If the two animations don't have the same individual run time (frames * FPS), framerates will be adjusted for the added layers.  
+
+blendlayer (string sequence) (int startFrame) (int peakFrame) (int tailFrame) (int endFrame) [spline] [crossfade]  
+Similar to addlayer, composits the layered animation only over the specified frames.   
+The optional spline parameter converts the linear fade in (startFrame -> peakFrame) and the linear fade out (tailFrame -> endFrame) to a spline curve.  
+
+blend (string name) (float minBoundary) (float maxBoundary)  
+
+blendwidth (int width)  
+
+activity (string name) (float weight)  
+Defines an Animation Activity for the $sequence.  
+
+activitymodifier (string modifier)  
+Defines one or more Animation Activity Modifiers for the $sequence.  
+
+{ event AE_ANIMATION_EVENT_NAME framenumber context_dependent_parameter }  
+Defines an Animation Event inside the $sequence  
+
+fps (float framesPerSecond)  
+Overrides the framerate of the animation. If not mentioned explicitly, assumed to be 30, by default.  
+
+
+## 16. Animation Pose Parameter Methods
+```
+weapon.GetScriptPoseParam0() // the integer returned will be a number between the minimum and maximum frame boundaries established with the .QC command $poseparameter
+weapon.SetScriptPoseParam0( int blend ) // this integer must be a number between the minimum and maximum frame boundaries established with the .QC command $poseparameter
+```
+
+# Activity and activity modifier list
+
 ```
 // custom activity (inspect being one of them)
 
@@ -1178,402 +1577,6 @@ Activity Modifiers are listed in (and in the future will be registered in) platf
     speed_boost
     sprinting
     updraft
-```
-
-R5V is developing a solution for registering custom activities and activity modifiers in the engine.  
-
-Commands exist for dumping all activities and activity modifiers to the console:  
-
-activity_dump  
-
-activitymodifier_dump  
-
-
-
-
-## 6. Animation Activity Methods
-```
-weapon.StartCustomActivity(string activityName, 0)
-weapon.StopCustomActivity()
-```
-
-## 7. Animation Events
-
-Animation Events represent flags inside of the animations that convey that an event has happened to the engine. They can be included inside $sequence commands inside model or animation-only .qc files, in which case they are named in ALL-CAPS, use underscores, use the "AE_" prefix, the "event" keyword, mention the frame number that the Animation Event is signalled at in the animation, have one context dependent parameter, and are contained between two curly brackets { }
-
-This is the Animation Event structure inside $sequence containers, in .qc files:
-```
-$sequence "sequencename" {
-// sequence commands    
-{ event AE_ANIMATION_EVENT framenumber context_dependent_param }
-// sequence commands
-}
-
-Examples:
-
-{ event AE_WPN_READYTOFIRE 10 "" }
-{ event AE_CL_PLAYSOUND 0 "weapon_rampage_equip" }
-
-```
-
-List of Animation Events used in R5V / Apex Legends:  
-
-### Weapon Animation Events
-```
-AE_WPN_READYTOFIRE // 3rd parameter ""
-AE_WPN_RUMBLE // controller haptic feedback, 3rd parameter string rumbleParameters
-AE_WPN_RELOAD_MILESTONE_1 // segmented reload milestone, 3rd parameter ""
-AE_WPN_RELOAD_MILESTONE_2 // segmented reload milestone, 3rd parameter ""
-AE_WPN_FILLAMMO // ammo refill callback, 3rd parameter ""
-```
-### Audio Animation Events
-```
-CL = Client-side
-
-AE_CL_PLAYSOUND // 3rd parameter string audioEventName, i.e.: "weapon_rampage_reload_maginsert"
-AE_CL_STOPSOUND // 3rd parameter string audioEventName
-```
-
-### Bodygroup Animation Events
-```
-AE_ENABLE_BODYGROUP // 3rd parameter string bodygroupName, i.e.: "thermite"
-AE_DISABLE_BODYGROUP // 3rd parameter string bodygroupName, i.e.: "thermite"
-AE_WPN_CLIPBODYGROUP_SHOW // 3rd parameter ""
-AE_WPN_CLIPBODYGROUP_HIDE // 3rd parameter ""
-```
-### Script Callback Animation Events
-```
-CL = Client-side
-SV = Server-side
-
-AE_CL_VSCRIPT_CALLBACK  // 3rd parameter script callback name
-
-AE_SV_VSCRIPT_CALLBACK // 3rd parameter script callback name
-
-{ event AE_SV_VSCRIPT_CALLBACK 120 "dragon_lmg_energized" }
-{ event AE_CL_VSCRIPT_CALLBACK 0 "muzzle_flash" }
-{ event AE_CL_VSCRIPT_CALLBACK 0 "shell_eject" }
-{ event AE_CL_VSCRIPT_CALLBACK 0 "ammo_update" }
-```
-
-### Player Movement State Animation Events
-```
-{ event AE_GROUND_CONTACT_L 0 "LandSweetener_High" }
-
-```
-
-### Particle System Animation Events
-```
-{ event AE_CL_CREATE_PARTICLE_EFFECT 9 "P_wpn_nem_reload_cyl_elec_01 follow_attachment fx_mag_inneredge_01" } 
-{ event AE_CL_ADD_PARTICLE_EFFECT_CP 9 "P_wpn_nem_reload_cyl_elec_01 1 follow_attachment fx_frame_edge_01" } // I don't know the difference for sure, don't ask me
-{ event AE_CL_STOP_PARTICLE_EFFECT 53 "P_wpn_nem_reload_cyl_elec_01 follow_attachment fx_mag_inneredge_01" }
-
-
-// 3rd parameter contains:
-a) The first person particle effect
-b) The particle effect behavior
-c) The particle effect attachment point on the model
-
-```
-
-## 8. Script-based Animation Events 
-
-There is an alternative to .qc Animation Events, which is the use of script-based Animation Events.
-```
-Examples:
-
-AddGlobalAnimEvent("cloak_on", AnimEvent_Cloak_On)
-
-AddAnimEvent( entity ent, string animEventName, funcref() callbackFunction )
-AddAnimEvent( pistol, "muzzle_flash", muzzleFlashCallback )
-AddAnimEvent( npc, "dropship_warpout, WarpoutEffect )
-AddAnimEvent( firstPersonProxy, "mantle_smallmantle", OnSmallMantle )
-AddAnimEvent( firstpersonProxy, "mantle_mediummantle", OnMediumMantle )
-AddAnimEvent( firstPersonProxy, "mantle_lowmantle", OnLowMantle )
-DeleteAnimEvent( entity ent, string eventName )
-
-
-AddGlobalAnimEventTokenize( string animEventName, funcref() callbackFunction )
-AddAnimEventTokenized()
-DeleteAnimEventTokenized()
-
-
-AddAnimAlias( "atlas", "ptpov_rodeo_move_front_lower_entrance", "ptpov_rodeo_move_atlas_back_mid_entrance") // for reusing animations on multiple models
-
-
-GetOptionalAnimEventVar()
-
-
-MakeAnimEventData()
-AnimEventData animEventData = GetAnimEventDataForEvent( entity ent, string eventName )
-
-
-AnimEvent_attach_pistol_common( ent, STEAL_PISTOL_MODEL, "w_p2011_mp_execution_gun_steal", StealP2011MuzzleFlash)
-
-
-GlobalAnimEvent_EnableWeapon( entity npc )
-GlobalAnimEvent_DisableWeapon( entity npc )
-GlobalAnimEvent_BT_Pod_Left( entity npc )
-GlobalAnimEvent_BT_Pod_Right( entity npc )
-GlobalAnimEvent_ClearParent( entity npc )
-GlobalAnimEvent_Hide( entity npc )
-GlobalAnimEvent_Show( entity npc )
-GlobalAnimEvent_ShowFPSProxy( entity player )
-GlobalAnimEvent_ClearAnimViewEntity( entity player )
-GlobalAnimEvent_SetVelocity( entity npc )
-GlobalAnimEvent_StanceKneel( entity npc )
-GlobalAnimEvent_StanceKneeling( entity npc )
-GlobalAnimEvent_StanceStanding( entity npc )
-GlobalAnimEvent_EnablePlanting( entity npc )
-GlobalAnimEvent_Kill( entity npc )
-GlobalAnimEvent_Gib( entity npc )
-GlobalAnimEvent_TitanGib( entity npc )
-GlobalAnimEvent_GiveAmmo( entity npc )
-GlobalAnimEvent_BodyFallHuman( entity npc )
-GlobalAnimEvent_BodyFallHuman_Small( entity npc )
-GlobalAnimEvent_headplant( entity npc )
-GlobalAnimEvent_footstep_human_small_L( entity npc )
-GlobalAnimEvent_footstep_human_small_R( entity npc )
-GlobalAnimEvent_Jump_Pad_Drop( entity npc )
-GlobalAnimEvent_BodyFallProwler( entity npc )
-GlobalAnimEvent_PutProwlerInSafeSpot( entity npc )
-GlobalAnimEvent_SetBodyGroup( entity model, array<string> tokens)
-GlobalAnimEvent_SetWeaponSkin00( entity weapon )
-GlobalAnimEvent_SetWeaponSkin01( entity weapon )
-GlobalAnimEvent_attach_knife( entity npc )
-GlobalAnimEvent_detach_knife( entity npc )
-GlobalAnimEvent_MarkForDeath( entity npc )
-GlobalAnimEvent_headstab_death( entity npc )
-GlobalAnimEvent_attach_p2011( entity npc )
-```
-
-## 9. Animation Event Functions
-
-```
-CodeCallback_OnServerAnimEvent( entity ent, string eventName )
-CodeCallback_HandleClientAnimEvent()
-HasAnimEvent( entity ent, string eventName )
-HasAnimEventTokenized( entity ent, string eventName )
-RunAnimEventCallbacks( entity ent, string eventName )
-PlayDialogueForAnimEvent( entity ent, string token)
-```
-
-## 10. Global Animation Event Structures
-```
-global struct AnimEventData
-global struct TokenizedAnimEventData
-```
-
-## 11. Animation Event Entity Keyvalues
-```
-entity.e.tokenizedAnimEventDataForEntity[ eventName ] <- animEventData // animEventData is an instance of the AnimEventData structure, this is a newslotting command, which creates a new slot in the Anim Event Data Table
-
-delete entity.e.tokenizedAnimEventDataForEntity[ eventName ] // this is a slot deletion command
-
-entity.e.animEventDataForEntity[ eventName ]
-```
-
-## 12. Script Callback Functions For Animation Events Inside .txt Config Files
-```
-"OnClientAnimEvent"                 "OnClientAnimEvent_weapon_Car" // example callback from mp_weapon_car.txt
-"OnWeaponTossReleaseAnimEvent"      "Grenade_OnWeaponTossReleaseAnimEvent" // example callback
-"OnWeaponPrimaryAttackAnimEvent"
-```
-
-## 13. Animation Methods and Functions
-
-It is important to keep in mind that animations are mostly a CLIENT-SIDED cosmetic feature; if you are calling an animation-related function from the SERVER VM and it doesn't work, it is almost certainly a CLIENT VM exclusive function.  
-
-### Animation Callback Functions
-
-All of these functions are global and shared between the SERVER and CLIENT VM's.
-
-```
-ClientCodeCallback_AnimWindowStart( ScriptAnimWindow window )
-ClientCodeCallback_AnimWindowTransition( ScriptAnimWindow window )
-ClientCodeCallback_AnimWindowStop( ScriptAnimWindow window )
-ClientCodeCallback_AnimWindowPrecache( asset windowSettingsAsset )
-
-CodeCallback_AnimationDone( entity ent )
-CodeCallback_AnimationInterrupted( entity ent )
-```
-
-### Other Animation Functions
-
-```
-PlayAnimTeleport( entity, animation_name, reference = null, optionalTag = null, initialTime = -1.0, smooth = false )
-
-PlayFPSAnimTeleport()
-
-PlayFPSAnimTeleportShowProxy()
-
-HasAnim( entity ent, string animationName ) // returns a bool // cl_anim.gnut
-
-string animation = GetAnim( entity ent, string animationName ) // cl_anim.gnut
-
-SetAnim( entity ent, string name, string animation) // cl_anim.gnut
-
-ModelData_SetAnim( modelData, string activityName )
-ModelData_SetAnim( modelData, "ACT_MP_MENU_LOBBY_CENTER_IDLE" )
-ModelData_SetAnim( modelData, "ACT_MP_MENU_LOBBY_SELECT_IDLE" )
-
-PlayAnim( entity, animation_name, optionalparms)
-
-PlayAnimWithTimeout()
-```
-
-### Animation Entity Methods
-
-```
-int activity = weapon.GetWeaponActivity()
-
-entity.Anim_Play("PathToRSEQ") or entity.AnimPlay("animation_name)
-
-entity.AnimStop() (stops all animation sequences)
-
-entity.Anim_SetInitialTime()
-
-entity.Anim_EnableUseAnimatedRefAttachmentInsteadOfRootMotion()
-
-entity.GetSequenceDuration( victoryAnim )
-
-string victoryAnim = "ACT_MP_MENU_LOBBY_SELECT_IDLE"
-
-entity.Anim_SetPlaybackRate( float playbackRate )
-
-entity.Anim_PlayOnly("animation_name")
-
-entity.Anim_IsActive()
-
-entity.Anim_ScriptedPlay()
-
-entity.Anim_EnablePlanting()
-
-entity.Anim_SetPaused( bool )
-
-entity.Anim_ScriptedPlayActivityByName("ACT_STUNNED", true, 0.1)
-
-entity.Anim_PlayAttackGesture() // does this work??
-
-entity.Anim_HasActivity("ACT_FLINCH_GRAPPLE")
-
-activity commands
-
-entity.Anim_ScriptedPlayActivityByName("ACT_FALL", false, 0.2)
-
-entity.Anim_PlayGesture("ACT_SCRIPT_CUSTOM_ATTACK2", 0.2, 0.2, -1.0) // does this work??
-
-entity_Anim_PlayWithRefPoint( animation, origin, angles, blendTime ) // requires that the entity be parented to the ref point ??
-```
-
-
-## 14. How Animations Work With Multiple Entities
-
-![Alt text](https://raw.githubusercontent.com/r5valkyrie/docs/refs/heads/main/docs/animationconcepts.png)
-
-For first person animations:
-
-Firstly, the same rig / skeleton is applied to the weapon viewmodel and the first person arms model. Where associated vertex groups are found in the model's 3D mesh (collection of triangles / polygons), the bone names must be identical to the vertex group names in order to control that part of the model. The models can't and don't need to have the same vertex groups (a first person arms model won't have a weapon model, for example) and this, by design, won't result in errors. The vertex groups that do not exist on one model are simply skipped and not animated. Different rigs are NOT compatible and CANNOT be used simultaneously.  
-
-Vertex groups and attachment points can be seen either in the model's .qc / .SMD's (usually multiple .SMDs because multiple LoD's / Levels of Detail depending on distance, the farther away from the camera, the less detailed, the lower the poly count, and vice-versa for close distances) or by opening the .MDL / .RMDL with the appropriate Binary Template, inside a hexadecimal editor like 010 Editor. The same goes for bones, joints, and pose parameters, with .RRIG files.  
-
-Secondly, the same animation is played on the identical rig applied to both models, synchronizing them.  
-
-Third person animations work analogously, with worldmodels instead of viewmodels.  
-
-
-## 15. Animation .QC Commands
-
-It is crucial to know what .QC Commands there are in order to work with animations.  
-
-An exhausitve list of QC Commands can be found on the Valve Developer Wiki [here](https://developer.valvesoftware.com/wiki/Category:QC_commands) and [here](https://developer.valvesoftware.com/wiki/QC_Commands).  
-
-However, the most commonly used animation-related .QC Commands in R5V / Apex Legends are (optional parameters are placed in between square brackets; parameters in between round brackets are MANDATORY):  
-
-
-$animation (name) (file) [optional params]  
-Defines an animation alongside with an alias to be used in the .QC file. The framerate can be included as an optional parameter, otherwise it is assumed to be 30 FPS.  
-Animations MUST be defined prior to being used in $sequence containers, in the $sequence mode that is used in R5V / Apex Legends (the second mode)!  
-
-$poseparameter (name) (minBoundary) (maxBoundary) ["loop" (number)] ["wrap"]  
-Used to define a pose parameter; boundaries are explicitly mentioned and arbitray, i.e.: 0 1 (blending between 2 stages), -180 180, etc.  
-Loops are used for animations that loop back in on themselves, such as wheels or propellers turning 360 degrees and looping back in on their start position.  
-Used to achieve smooth interpolation between different frames / states for bones on a model.  
-
-A comprehensive tutorial on PoseParameters can be seen here on YouTube, courtesy of Mr Funreal: https://youtu.be/1fMJHD2-n24  
-
-$blend  
-Create smooth interpolation between different frames for bones on a model, generally used together with a pose parameter.  
-Example: blend POSEPARAM_3 0 1 // This interpolates between the boundary frames, mapped between the values 0 and 1, where 0 is the first frame and 1 is the last frame. Hence, 0.5 would be the frame located halfway in the animation.  
-Used to achieve smooth interpolation between different frames / states for bones on a model.  
-
-$sequence   
-Defines an animation sequence, which contains multiple animations and can contain many additional parameters, such as blending parameters, layered animations, animation activities, animation events, etc.  
-Has two modes:  
-
-```
-Mode 1:
-$sequence (name) (skeletal animation SMD / DMX) (simple options) {
-    (advanced options)
-    (events)
-    (simple options)
-
-    // Note: the order must be respected
-}
-
-Mode 2:
-$sequence (name) (simple options) {
-    (animation name(s), aliases MUST be defined earlier in the .QC)
-    (advanced options)
-    (events)
-    (simple options)
-
-    // Note: the order must be respected
-}
-```
-
-This latter $sequence mode is the one used in R5V / Apex Legends.  
-
-An article detailing the many aspects of the $sequence command can be found on the Valve Developer Wiki: https://developer.valvesoftware.com/wiki/$sequence  
-
-Commonly used sequence commands (non-exhaustive list, for an exhaustive list, consult the Valve Developer Wiki Article):  
-
-delta  
-Communicates to the engine that the $animations referenced in the current sequence have been subtracted. The $sequence will play on top of the currently playing $sequences and NOT override them.  
-
-subtract (string animation) (int frameNumber)  
-"This [command] subtracts the specified frame of the specified animation from all the frames of the current animation and creates an animation that is the differences between the two, effectively converting the animation to just be the changes from a reference frame of another animation." (from the Valve Developer Wiki).  
-
-addlayer (string otherSequenceName)  
-Adds a layered animation sequence on top of a core animation sequence.  
-Usually used to layer delta animations on top of the core animation sequence.  
-The animation sequences begin and end together. If the two animations don't have the same individual run time (frames * FPS), framerates will be adjusted for the added layers.  
-
-blendlayer (string sequence) (int startFrame) (int peakFrame) (int tailFrame) (int endFrame) [spline] [crossfade]  
-Similar to addlayer, composits the layered animation only over the specified frames.   
-The optional spline parameter converts the linear fade in (startFrame -> peakFrame) and the linear fade out (tailFrame -> endFrame) to a spline curve.  
-
-blend (string name) (float minBoundary) (float maxBoundary)  
-
-blendwidth (int width)  
-
-activity (string name) (float weight)  
-Defines an Animation Activity for the $sequence.  
-
-activitymodifier (string modifier)  
-Defines one or more Animation Activity Modifiers for the $sequence.  
-
-{ event AE_ANIMATION_EVENT_NAME framenumber context_dependent_parameter }  
-Defines an Animation Event inside the $sequence  
-
-fps (float framesPerSecond)  
-Overrides the framerate of the animation. If not mentioned explicitly, assumed to be 30, by default.  
-
-
-## 16. Animation Pose Parameter Methods
-```
-weapon.GetScriptPoseParam0() // the integer returned will be a number between the minimum and maximum frame boundaries established with the .QC command $poseparameter
-weapon.SetScriptPoseParam0( int blend ) // this integer must be a number between the minimum and maximum frame boundaries established with the .QC command $poseparameter
 ```
 
 
