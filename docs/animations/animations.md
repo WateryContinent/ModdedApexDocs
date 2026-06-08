@@ -26,11 +26,15 @@ Animations are sequences of frames (snapshots) in which the model is posed in va
 
 ## 2. What is a rig?
 
-A rig / skeleton / armature is a collection of "bones" mapped onto vertex groups contained within the model's mesh (collection of triangles / polygons), in order to be able to move it and control its movements
+A rig / skeleton / armature is a collection of "bones" mapped onto vertex groups (groups of vertices in 3D space with their own assigned weights, which dictate to what degree / with what intensity events such as bone movements translate to vertex movements, etc.) contained within the model's mesh (collection of triangles / polygons), in order to be able to move it and control its movements. Basically, rigs are used to articulate a mesh for skeletal animation. In 3D, skeletal animation differs from its ancestor, vertex animation, by using a rig to deform a mesh instead of the archaic, outdated and obsolete method of manually animating individual vertices on a mesh (which yielded vertex jitter that made models look "wobbly", which is very evident in old games).
+
+You may see these 3 terms (rig, skeleton and armature) being used interchangeably, but the term "rig" may be used to refer to armatures which do not only contain deformation bones, but also special controller bones and make use of more advanced features such as shape keys, bone drivers and bone constraints. Usually, a "skeleton" refers to a simple collection of deformation bones.
+
+A bone is a special object used in 3D animation with the purpose of deforming (moving, distorting, warping) a 3D mesh or controlling how a mesh should be deformed by deformation bones (in this case, they are special "controller" bones), such as for Inverse Kinematics. A bone has a head (the root of the bone, its most important part), a tail, an orientation (always pointing towards +Y in Blender, customizable in Maya), a roll / twist value and a length and size which do not affect anything other than how it's displayed in the 3D Viewport.
 
 Animation has two prerequisite steps: skinning and rigging
 
-Skinning, in this context, does not refer to texturing or retexturing a model, but to mapping bones to a model's vertices / vertex groups in order to allow the bones to manipulate the mesh (weight painting)
+Skinning, in this context, does not refer to texturing or retexturing a model, but to mapping bones to a model's vertices (almost always done collectively in the form of vertex groups) in order to allow the bones to manipulate the mesh (weight painting)
 
 Rigging encompasses the creation of bone controllers, adding support for inverse kinematics, creating FK-IK switches, etc.
 
