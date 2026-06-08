@@ -80,6 +80,31 @@ Humanoid characters have dummy weapon bones (i.e.: ja_c_propGun) in order to all
 Apex Legends humanoid characters have an additional hand bone called "outterwrist" (Respawn's typo).
 If you cannot see a bone, it might be inside another bone.
 
+# Setting up humanoid character meshes for use with the Custom Rig
+
+Reminder: in this context, the Custom Rig = the armature which contains all of the controller bones with all of the custom bone shapes, etc.
+
+Any Respawn humanoid character mesh can be set up to work with the Custom Rig:
+
+- If you want to adapt a Titanfall character mesh to the Custom Rig, decompile it into .SMDs and a .QC using the Crowbar studiomdl.exe GUI
+- If you want to adapt an Apex Legends character mesh to the Custom Rig, export it from the RPAK it is located in as .SMDs and a .QC using r-exx's RSX (ReSource eXtractor)
+- Using the Blender Source Tools plugin for Blender, import the mesh(es) as .SMDs either by selecting the .SMD files or selecting their corresponding .QC file
+- The character meshes will come with their associated in-engine deformation bone armature.
+- Delete the lower LOD meshes (lower Level of Detail = lod number > 0 = fewer polygons, etc.); only LOD0 meshes should remain
+- Select the associated armature of the mesh(es) in Object Mode, go into Pose Mode with CTRL + TAB, rotate the elbows 45 degrees up and the elbows 42 degrees outwards, to make the character mesh(es) form a neutral, upright T-Pose
+- Go to the modifier section of the mesh(es)
+- Switch to Object Mode with CTRL + TAB and Apply the Armature modifier on the mesh(es) from the dropdown next to the topmost X on the modifier
+- Select the deformation bone armature that came with the mesh(es)
+- Select all bones with A and press CTRL + A then Apply Selected As Rest Pose 
+- Unparent the remaining LOD0 mesh(es) from the deformation bone armature by selecting the mesh(es) in Object Mode and pressing ALT + P (at this point it doesn't matter if you choose to keep the transformations or not)
+- If the Custom Armature has all the bones you want, you can get rid of the imported deformation bone armature at this point. If the Custom Rig has bones that are missing, keep the deformation bone armature.
+- Skip these steps if the Custom Armature has all the bones you want: select the deformation bone armature that came with the model in Object Mode, go into Edit Mode, select all the bones that are missing from the Custom Rig, press SHIFT + D to duplicate them, right mouse click to paste them at the same position, press P to separate them into a separate armature with only those bones. Duplicate this new, smaller armature at the same location (this duplicate will be joined with the Custom Rig, so you need 2 identical armatures containing the additional bones). Go into Object Mode, unhide the deformation bone armature associated with the Custom Rig by pressing ALT + H (unhides everything). Select one of the new, small armature which contains the additional bones you separate, then multi select the deformation bone armature that corresponds to the Custom Rig (sphere bone shapes) by holding SHIFT when selecting it, then press CTRL + J to join the two armatures into one armature. Repeat this with the other smaller armature and the Custom Rig which has all of the controller bones. 
+- At this point, you may find that the mesh(es) you imported is / are too short and the Custom Rig too tall. In this situation, you will unfortunately have to go into Edit Mode on both the deformation bone armature and the custom rig and manually adjust the bone positions to fit them to the mesh. If you're lucky, you may only need to move the upper body down a few units and the hands inward a few units. Make sure you move the bones on both armatures by the same amount. This can be done by selecting the bones in Edit Mode, pressing G followed by whichever global axis you want to move the bones on TWICE (to make sure the transforms are on the global axes), followed by a positive or negative amount of units depending on the direction down the axis, so, for example, G + Z + Z + 4 moves an Object 4 units up the global Z axis. If you are a proficient blender user, this will be quick and easy.
+- Once everything is in order, select the mesh(es) in Object Mode, then the DEFORMATION BONE ARMATURE (not the Custom Rig! The Custom Rig controls the Deformation Bone Armature), then click SHIFT + P and select the SIMPLE Armature Deform option (do NOT choose any other option under Armature Deform, as this will override all of the skinning / weight painting and ruin everything)
+- You are now ready to start animating!
+
+# Baking and exporting your custom animation(s)
+
 When you are done creating your animation, go to the Edit menu and uncheck "Lock Object Modes", then go into Object Mode and deselect everything either by clicking on an empty space or pressing ESCAPE.
 Afterwards, select the Custom Rig in Object Mode and go into Pose Mode.
 Then, select the deformation bone armature in Object Mode and go into Pose Mode
