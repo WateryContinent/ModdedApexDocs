@@ -52,7 +52,7 @@ Changes in position of bones between frames are known as "deltas" (differences /
 
 Delta layering does not completely override bone positions to the delta, but, instead, compounds the core animations with the delta animations.
 
-Delta animations are used to combine / blend between different animations / animation states such as firing with aiming down sights, etc.
+Delta animations are used to combine / blend different animations / animation states such as firing with aiming down sights, etc.
 
 
 ## 3. A brief historical recap of Respawn's animation implementation
