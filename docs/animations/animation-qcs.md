@@ -296,7 +296,7 @@ AE_CL_STOPSOUND // frame to stop a client-sided only sound at, followed by a 3rd
 AE_CL_CREATE_PROP 
 ```
 
-The 3rd parameter is complicated and not well understood, but it seems to be an identifier such as "p@" followed by a hexadecimal sequence, followed by the prop's RMDL model, then the attachment point for it to be parented to on the RRIG the animation sequence is played on, all encased in quotation marks. The hexadecimal sequence is not the GUID corresponding to the prop's model in an RPAK. This animation event is responsible for communicating to the engine when, during an animation, a Client-Sided Prop is meant to spawn, which model it should use, and which attachment point it should be attached to, so that it ca follow its movements
+The 3rd parameter is a unique sequence for the animation sequence. IDs starting with "p@" are used by Prop creation events and IDs starting with "w@" are used by Animation Window events. This identifier is followed by the prop's RMDL model, then the attachment point for it to be parented to on the RRIG the animation sequence is played on, all encased in quotation marks. The hexadecimal sequence is not the GUID corresponding to the prop's model in an RPAK. This animation event is responsible for communicating to the engine when, during an animation, a Client-Sided Prop is meant to spawn, which model it should use, and which attachment point it should be attached to, so that it can follow its movements.
 
 ```
 Example:
@@ -351,9 +351,9 @@ Examples:
 ```
 
 Animation Window Animation Events are probably the most complicated type of events. 
-Respawn almost certainly created Animation Window settings files to be able to have granular control over what happens during animation sequences, so as to be able to make advanced animations. 
+Respawn almost certainly created Animation Window settings files to not have to hardcode VScript callback functions such as for spawning props (which is what they did in Titanfall 2, for example, with pilot executions) and to be able to have granular control over what happens during animation sequences. Animation Windows also ensure proper synchronization of events with the animation sequence.
 These Animation Windows settings files allow for deep configuration of events that happen during animations. 
-They can contain settings for which props to create, which kind of UI elements to use, sounds to play and more.
+They can contain settings for which props to create, VScript callbacks, sounds to play and more.
 
 ```
 The format is:
