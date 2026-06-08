@@ -46,7 +46,7 @@ It is important to note that animation-only .MDL's exist. These .MDL's are usual
 
 Bones are exposed by going into "Edit Mode". From that view it is possible to observe bones, joints, bone modifiers, the bone hierarchy, etc.
 
-The weight painting (weight distribution) of vertices on a mesh can be seen by selecting the mesh in Object Mode and either going into the Weight Painting Mode or into Edit Mode, pressing 1 to go into vertex mode, selecting a vertex, going into the Item tab at the top right of the 3D Viewport and scrolling down to the weight groups section. Weight groups represent the weight painting of different vertex groups (which weight is mapped to which vertex).
+The weight painting (weight distribution) of vertices on a mesh can be seen by selecting the mesh in Object Mode and either going into the Weight Painting Mode or into Edit Mode, pressing 1 to go into vertex mode, selecting a vertex, going into the Item tab at the top right of the 3D Viewport and scrolling down to the weight groups section. Weight groups represent the weight painting of different vertex groups (which weight is mapped to which vertex). Weight painting a mesh is synonymous with skinning a mesh.
 
 Changes in position of bones between frames are known as "deltas" (differences / changes) and animations obtained from subtracting frames or animations from other animations are known as "delta animations". These "delta anims" are meant to be layered on top of other animations, as they do not have meaning on their own.
 
