@@ -23,16 +23,20 @@ The main features of the Custom Rig setup are:
 - A switch which controls whether or not the magazine is parented to the weapon bone (ja_c_propGun)
 - Facial bones (disclaimer: these facial bones are from Titanfall so they may not be fully compatible with Apex Legends facial bone naming / bone configurations)
 - 2 helmet bones (def_c_top_helmet and def_c_bottom_helmet); these bones require a mesh with corresponding vertex groups in order to actually animate anything
-- Bone collections for toggling visibility for facial and helmet bones
+- Bone collections for toggling visibility and quick selection of facial, helmet, eye, eyelid, finger, IK, weapon bones
+- Left and right mirrored naming (_L and _R suffixes) for quickly mirroring poses (useful for walk cycles, run cycles, etc.)
+- Easy to understand and high visibility coloring of bones
+- Custom bone shapes
+- Finger bone shapes that emulate Respawn's Maya finger bone shapes
+- Wrist and heel bones that follow the rotation of arm and leg IK controller bones (no need to adjust wrists and heels separately)
 
-
-All of these features can be easily accessed by selecting the SettingsBone bone that uses as cog shape, going into the Item tab and scrolling down to "Properties". All of these features have been implemented using the bone custom properties and bone drivers, to make it as easy as quick and as possible for the animators.
+The switches can be easily accessed by selecting the SettingsBone bone that uses as cog / gear shape, going into the Item tab and scrolling down to "Properties". All of the features with switches have been implemented using bone custom properties and bone drivers, to make it as easy and as quick as possible for the animators.
 
 Unfortunately, by default, Blender does not allow maintaining the same World Space transforms for the limbs when switching from IK to FK. There are, however, reasonably affordable addons that allow for this, such as Transformator - Core (which, as of writing, is 19 euros on not_that_NDA's Gumroad).
 
 Bonus elements included with the Custom Rig are:
 - a first person camera
-- a third person camera
+- a third person camera (can easily and quickly switch between the two by selecting the desired camera in Object Mode, going into View -> Cameras and clicking "Set Active Object As Camera" or pressing CTRL + Numpad 0 by default)
 - animation reference cubes for depth and motion referencing for both first person and third person animations
 - 2 area lights
 - a default action called "KeyingSet" which has every bone keyed on the first frame; duplicate this action and rename it when starting a new animation
