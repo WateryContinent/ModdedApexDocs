@@ -38,13 +38,15 @@ Skinning, in this context, does not refer to texturing or retexturing a model, b
 
 Rigging encompasses the creation of bone controllers, adding support for inverse kinematics, creating FK-IK switches, etc.
 
-The armature of a model can be seen by exporting the RMDL with RSX as SMDs (Studiomodel Data Files) and then importing them into [Blender](https://www.blender.org/), using [Blender Source Tools](https://developer.valvesoftware.com/wiki/Blender_Source_Tools) on .qc / .smd import mode.
+The armature of a model can be seen by exporting the RMDL with RSX as .SMDs (Studiomodel Data Files) and then importing them into [Blender](https://www.blender.org/), using [Blender Source Tools](https://developer.valvesoftware.com/wiki/Blender_Source_Tools) on .qc / .smd import mode.
 
 R1 (Titanfall 2014) and R2 (Titanfall 2, 2016) require extracting the .MDL files from the VPK archives (before RPAK archives existed) and then decompiling them with Studiomdl.exe, to obtain a .qc and .SMD files. They can be imported into Blender, afterwards, using the Blender Source Tools.
 
 It is important to note that animation-only .MDL's exist. These .MDL's are usually used for shared animations that can be played by multiple different models. Animation-only .qc's also exist, alongside .qci files (.qc inherited / included).
 
 Bones are exposed by going into "Edit Mode". From that view it is possible to observe bones, joints, bone modifiers, the bone hierarchy, etc.
+
+The weight painting (weight distribution) of vertices on a mesh can be seen by selecting the mesh in Object Mode and either going into the Weight Painting Mode or into Edit Mode, pressing 1 to go into vertex mode, selecting a vertex, going into the Item tab at the top right of the 3D Viewport and scrolling down to the weight groups section. Weight groups represent the weight painting of different vertex groups (which weight is mapped to which vertex).
 
 Changes in position of bones between frames are known as "deltas" (differences / changes) and animations obtained from subtracting frames or animations from other animations are known as "delta animations". These "delta anims" are meant to be layered on top of other animations, as they do not have meaning on their own.
 
