@@ -21,6 +21,7 @@ The main features of the Custom Rig setup are:
 - A switch which controls whether or not the right hand is parented to the weapon bone (ja_c_propGun)
 - A switch which controls whether or not the left hand is parented to the magazine bone (def_c_magazine), which in turn is parented to the weapon bone (ja_c_propGun)
 - A switch which controls whether or not the magazine is parented to the weapon bone (ja_c_propGun)
+- Switches which control whether or not the heel bones follow the rotation of the leg IK bones
 - Facial bones (disclaimer: these facial bones are from Titanfall so they may not be fully compatible with Apex Legends facial bone naming / bone configurations)
 - 2 helmet bones (def_c_top_helmet and def_c_bottom_helmet); these bones require a mesh with corresponding vertex groups in order to actually animate anything
 - Bone collections for toggling visibility and quick selection of facial, helmet, eye, eyelid, finger, IK, weapon bones
