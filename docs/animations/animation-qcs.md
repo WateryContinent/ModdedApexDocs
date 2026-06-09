@@ -18,6 +18,8 @@ In order to extract .QC, .SMD or .DMX files it is necessary to use RSX (ReSource
 
 # Raw animations
 
+REMINDER: First person / viewmodel animations must be exported with the CAMERA BONE, as opposed to the ROOT BONE, at the world origin (rig translated down on Z by 63 units) and ALL transforms applied! After you are done making your animation and baking it, move the skeleton down and apply transforms otherwise you will only see the first person character model's feet when you play the animation in game, as the rig is being used with the wrong coordinates. Third person animations must be exported with the ROOT BONE (jx_c_delta) at the world origin and all transforms applied on the armature.
+
 ReSource uses the "class"-styled declaration of $sequences instead of accessing skeletal anims directly:
 
 ```

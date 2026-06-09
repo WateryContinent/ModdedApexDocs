@@ -84,13 +84,17 @@ If you cannot see a bone, it might be inside another bone.
 
 Reminder: in this context, the Custom Rig = the armature which contains all of the controller bones with all of the custom bone shapes, etc.
 
+This custom rig will work from the get-go with all Titanfall character meshes, but will not fit all or any Apex Legends character models because of vastly different heights for different third person legend models (for example, Wraith's third person character mesh is significantly shorter). The only exceptions are all the first person models, which all have the same height and proportions in order to harmonize them with the universal weapon animations. By convention, Source characters meshes and ReSource first person view character meshes are ~63 units tall (measuring from the origin or root bone to the camera bone) and the Custom Rig follows this convention. If the character mesh you want to use does not fit the size of the Custom Rig, you will have to manually adapt the rig.
+
+A Titan rig is not being currently distributed, although there are free Titan rigs available on the internet.
+
 Any Respawn humanoid character mesh can be set up to work with the Custom Rig:
 
-- If you want to adapt a Titanfall character mesh to the Custom Rig, decompile it into .SMDs and a .QC using the Crowbar studiomdl.exe GUI
-- If you want to adapt an Apex Legends character mesh to the Custom Rig, export it from the RPAK it is located in as .SMDs and a .QC using r-exx's RSX (ReSource eXtractor)
+- If you want to use a Titanfall character mesh with the Custom Rig, decompile it into .SMDs and a .QC using the Crowbar studiomdl.exe GUI
+- If you want to use an Apex Legends character mesh with the Custom Rig, export it from the RPAK it is located in as .SMDs and a .QC using r-exx's RSX (ReSource eXtractor)
 - Using the Blender Source Tools plugin for Blender, import the mesh(es) as .SMDs either by selecting the .SMD files or selecting their corresponding .QC file
 - The character meshes will come with their associated in-engine deformation bone armature.
-- Delete the lower LOD meshes (lower Level of Detail = lod number > 0 = fewer polygons, etc.); only LOD0 meshes should remain
+- Delete the lower LOD meshes (lower Level of Detail = lod number > 0 = fewer polygons, etc.); only LOD0 meshes should remain (polygon count here is not an issue and you want the best quality, the lower quality meshes don't serve any purpose in the animation process)
 - Select the associated armature of the mesh(es) in Object Mode, go into Pose Mode with CTRL + TAB, rotate the elbows 45 degrees up and the elbows 42 degrees outwards, to make the character mesh(es) form a neutral, upright T-Pose
 - Go to the modifier section of the mesh(es)
 - Switch to Object Mode with CTRL + TAB and Apply the Armature modifier on the mesh(es) from the dropdown next to the topmost X on the modifier
