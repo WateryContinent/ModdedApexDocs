@@ -13,14 +13,20 @@
       "assets": []
     },
     {
-      "title": "Writing .QCs",
+      "title": "Writing Animation .QCs",
       "path": "docs/animations/animation-qcs.md",
       "group": "Animations",
       "assets": [
         {
-          "name": "ApexCustomHumanIKRig.blend",
-          "path": "docs/animations/assets/ApexCustomHumanIKRig.blend",
-          "size": "254.7 KB",
+          "name": "ApexTitanfallCombinedHumanRigV7.blend",
+          "path": "docs/animations/assets/ApexTitanfallCombinedHumanRigV7.blend",
+          "size": "2.2 MB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "path": "docs/animations/assets/ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "size": "404.1 KB",
           "folder": "animations/assets"
         },
         {
@@ -37,9 +43,15 @@
       "group": "Animations",
       "assets": [
         {
-          "name": "ApexCustomHumanIKRig.blend",
-          "path": "docs/animations/assets/ApexCustomHumanIKRig.blend",
-          "size": "254.7 KB",
+          "name": "ApexTitanfallCombinedHumanRigV7.blend",
+          "path": "docs/animations/assets/ApexTitanfallCombinedHumanRigV7.blend",
+          "size": "2.2 MB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "path": "docs/animations/assets/ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "size": "404.1 KB",
           "folder": "animations/assets"
         },
         {
@@ -56,9 +68,65 @@
       "group": "Animations",
       "assets": [
         {
-          "name": "ApexCustomHumanIKRig.blend",
-          "path": "docs/animations/assets/ApexCustomHumanIKRig.blend",
-          "size": "254.7 KB",
+          "name": "ApexTitanfallCombinedHumanRigV7.blend",
+          "path": "docs/animations/assets/ApexTitanfallCombinedHumanRigV7.blend",
+          "size": "2.2 MB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "path": "docs/animations/assets/ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "size": "404.1 KB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ExampleRPAKForRePak.zip",
+          "path": "docs/animations/assets/ExampleRPAKForRePak.zip",
+          "size": "18.5 KB",
+          "folder": "animations/assets"
+        }
+      ]
+    },
+    {
+      "title": "Free Custom Rig for Titanfall and Apex Legends characters",
+      "path": "docs/animations/free-rig.md",
+      "group": "Animations",
+      "assets": [
+        {
+          "name": "ApexTitanfallCombinedHumanRigV7.blend",
+          "path": "docs/animations/assets/ApexTitanfallCombinedHumanRigV7.blend",
+          "size": "2.2 MB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "path": "docs/animations/assets/ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "size": "404.1 KB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ExampleRPAKForRePak.zip",
+          "path": "docs/animations/assets/ExampleRPAKForRePak.zip",
+          "size": "18.5 KB",
+          "folder": "animations/assets"
+        }
+      ]
+    },
+    {
+      "title": "Writing Rig .QCs",
+      "path": "docs/animations/rig-qcs.md",
+      "group": "Animations",
+      "assets": [
+        {
+          "name": "ApexTitanfallCombinedHumanRigV7.blend",
+          "path": "docs/animations/assets/ApexTitanfallCombinedHumanRigV7.blend",
+          "size": "2.2 MB",
+          "folder": "animations/assets"
+        },
+        {
+          "name": "ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "path": "docs/animations/assets/ApexTitanfallDeformationBoneArmatureForEngine.blend",
+          "size": "404.1 KB",
           "folder": "animations/assets"
         },
         {
@@ -316,12 +384,6 @@
       "assets": []
     },
     {
-      "title": "VGUI (Valve GUI)",
-      "path": "docs/respawn-and-valve-UI/user-interface.md",
-      "group": "Respawn And Valve Ui",
-      "assets": []
-    },
-    {
       "title": "Materials",
       "path": "docs/respawn-and-valve-materials/materials.md",
       "group": "Respawn And Valve Materials",
@@ -331,6 +393,12 @@
       "title": "Textures",
       "path": "docs/respawn-and-valve-materials/textures.md",
       "group": "Respawn And Valve Materials",
+      "assets": []
+    },
+    {
+      "title": "VGUI (Valve GUI)",
+      "path": "docs/respawn-and-valve-UI/user-interface.md",
+      "group": "Respawn And Valve Ui",
       "assets": []
     },
     {
